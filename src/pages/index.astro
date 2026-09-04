@@ -2,7 +2,13 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
 ---
 
 <!doctype html>
@@ -10,18 +16,242 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
+
 	<body>
 		<Header />
+
 		<main>
-			<h1>putl</h1>
-			<p>记录技术、项目与一些长期思考。</p>
+			<section class="hero">
+				<p class="eyebrow">PUTL / NOTES</p>
 
-			<p>
-				这里会记录我做过的项目、踩过的坑，以及对 AI、软件工程和生活的一些思考。
-			</p>
+				<h1>
+					记录那些<br />
+					<span>值得留下的东西。</span>
+				</h1>
 
-			<p><a href="/blog/">查看文章 →</a></p>
+				<p class="intro">
+					技术、项目、AI，以及一些还没有答案的长期思考。
+				</p>
+
+				<div class="actions">
+					<a class="primary" href="/blog/">阅读文章</a>
+					<a class="secondary" href="/about/">关于我</a>
+				</div>
+			</section>
+
+			<section class="thought">
+				<div class="line"></div>
+				<p>
+					做出来只是开始。<br />
+					真正有意思的是，在不断构建的过程中逐渐看清问题。
+				</p>
+			</section>
+
+			<section class="latest">
+				<div class="section-head">
+					<div>
+						<p class="eyebrow">RECENT WRITING</p>
+						<h2>最近在写</h2>
+					</div>
+
+					<a href="/blog/">全部文章 →</a>
+				</div>
+
+				<div class="posts">
+					{
+						posts.map((post, index) => (
+							<a class="post" href={`/blog/${post.id}/`}>
+								<div class="index">{String(index + 1).padStart(2, '0')}</div>
+
+								<div class="post-content">
+									<h3>{post.data.title}</h3>
+									<p>{post.data.description}</p>
+								</div>
+
+								<div class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</div>
+							</a>
+						))
+					}
+				</div>
+			</section>
 		</main>
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	main {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.hero {
+		padding: 9rem 0 7rem;
+		max-width: 900px;
+	}
+
+	.eyebrow {
+		font-size: 0.78rem;
+		letter-spacing: 0.18em;
+		color: #777;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+	}
+
+	h1 {
+		font-size: clamp(3.4rem, 8vw, 7rem);
+		line-height: 0.98;
+		letter-spacing: -0.055em;
+		margin: 0;
+		font-weight: 700;
+	}
+
+	h1 span {
+		color: #777;
+	}
+
+	.intro {
+		font-size: 1.35rem;
+		line-height: 1.8;
+		color: #555;
+		margin: 2.5rem 0;
+		max-width: 620px;
+	}
+
+	.actions {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.actions a {
+		text-decoration: none;
+		padding: 0.85rem 1.35rem;
+		border-radius: 999px;
+		font-weight: 600;
+	}
+
+	.primary {
+		background: #111;
+		color: white;
+	}
+
+	.secondary {
+		border: 1px solid #ddd;
+		color: #111;
+	}
+
+	.thought {
+		display: grid;
+		grid-template-columns: 100px 1fr;
+		gap: 2rem;
+		padding: 5rem 0;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
+	}
+
+	.line {
+		width: 100%;
+		height: 1px;
+		background: #111;
+		margin-top: 1rem;
+	}
+
+	.thought p {
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		line-height: 1.55;
+		margin: 0;
+		letter-spacing: -0.02em;
+	}
+
+	.latest {
+		padding: 7rem 0;
+	}
+
+	.section-head {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		margin-bottom: 3rem;
+	}
+
+	.section-head h2 {
+		font-size: 2.4rem;
+		margin: 0;
+	}
+
+	.section-head a {
+		color: #555;
+		text-decoration: none;
+	}
+
+	.posts {
+		border-top: 1px solid #ddd;
+	}
+
+	.post {
+		display: grid;
+		grid-template-columns: 70px 1fr auto;
+		gap: 2rem;
+		align-items: center;
+		padding: 2rem 0;
+		border-bottom: 1px solid #ddd;
+		text-decoration: none;
+		color: inherit;
+		transition: opacity 0.2s ease;
+	}
+
+	.post:hover {
+		opacity: 0.55;
+	}
+
+	.index {
+		color: #999;
+		font-size: 0.85rem;
+	}
+
+	.post h3 {
+		font-size: 1.45rem;
+		margin: 0 0 0.5rem;
+	}
+
+	.post p {
+		color: #666;
+		margin: 0;
+	}
+
+	.date {
+		color: #999;
+		font-size: 0.85rem;
+		white-space: nowrap;
+	}
+
+	@media (max-width: 700px) {
+		main {
+			padding: 0 1.25rem;
+		}
+
+		.hero {
+			padding: 6rem 0 4rem;
+		}
+
+		.thought {
+			grid-template-columns: 1fr;
+		}
+
+		.line {
+			width: 60px;
+		}
+
+		.post {
+			grid-template-columns: 40px 1fr;
+		}
+
+		.date {
+			display: none;
+		}
+	}
+</style>
