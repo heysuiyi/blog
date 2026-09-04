@@ -1,0 +1,27 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>putl</h1>
+			<p>记录技术、项目与一些长期思考。</p>
+
+			<p>
+				这里会记录我做过的项目、踩过的坑，以及对 AI、软件工程和生活的一些思考。
+			</p>
+
+			<p><a href="/blog/">查看文章 →</a></p>
+		</main>
+		<Footer />
+	</body>
+</html>
