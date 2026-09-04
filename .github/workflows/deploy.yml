@@ -1,0 +1,27 @@
+name: Deploy Blog
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    env:
+      HTTP_PROXY: http://127.0.0.1:7890
+      HTTPS_PROXY: http://127.0.0.1:7890
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        run: |
+          rm -rf /home/suiyi/blog/dist/*
+          cp -a dist/. /home/suiyi/blog/dist/
