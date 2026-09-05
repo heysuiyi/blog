@@ -8,79 +8,287 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category = '随笔' } = Astro.props;
 ---
 
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
 	<body>
+		<!-- Reading Progress Bar -->
+		<div id="reading-progress" class="reading-progress-bar"></div>
+
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
+
+		<main class="post-layout">
+			<article class="post-article">
+				<!-- Hero Header Section -->
+				<header class="article-hero">
+					<div class="article-meta">
+						<span class="category-badge">{category}</span>
+						<span class="meta-date">
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+								<line x1="16" x2="16" y1="2" y2="6"/>
+								<line x1="8" x2="8" y1="2" y2="6"/>
+								<line x1="3" x2="21" y1="10" y2="10"/>
+							</svg>
 							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+						</span>
+						{updatedDate && (
+							<span class="meta-updated">
+								(更新于 <FormattedDate date={updatedDate} />)
+							</span>
+						)}
 					</div>
+
+					<h1 class="article-title">{title}</h1>
+					{description && <p class="article-desc">{description}</p>}
+
+					{heroImage && (
+						<div class="hero-cover-wrap">
+							<Image width={1020} height={510} src={heroImage} alt={title} class="hero-cover-img" />
+						</div>
+					)}
+				</header>
+
+				<!-- Article Body -->
+				<div class="article-content prose">
 					<slot />
+				</div>
+
+				<!-- Copyright & End Notice -->
+				<div class="copyright-card">
+					<div class="copyright-header">
+						<span class="flower-icon">🌸</span>
+						<strong>版权声明 / Copyright</strong>
+					</div>
+					<p class="copyright-text">
+						本文由 <strong>putl</strong> 原创撰写，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 许可协议。转载请注明出处！
+					</p>
+				</div>
+
+				<!-- Post Navigation Footer -->
+				<div class="post-bottom-nav">
+					<a href="/blog" class="back-link">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="m15 18-6-6 6-6"/>
+						</svg>
+						<span>返回文章列表</span>
+					</a>
 				</div>
 			</article>
 		</main>
+
 		<Footer />
+
+		<script>
+			// Reading progress indicator
+			window.addEventListener('scroll', () => {
+				const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+				const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+				const scrolled = (winScroll / height) * 100;
+				const progressBar = document.getElementById('reading-progress');
+				if (progressBar) {
+					progressBar.style.width = scrolled + '%';
+				}
+			});
+		</script>
 	</body>
 </html>
+
+<style>
+	/* Reading Progress Bar */
+	.reading-progress-bar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 3px;
+		width: 0%;
+		background: var(--primary-gradient);
+		z-index: 999;
+		transition: width 0.1s ease;
+	}
+
+	.post-layout {
+		max-width: 900px;
+		margin: 2.5rem auto 5rem;
+		padding: 0 1.5rem;
+		width: 100%;
+	}
+
+	.post-article {
+		background: var(--card-bg);
+		border: 1px solid var(--card-border);
+		border-radius: var(--radius-lg);
+		padding: 3rem 3.5rem;
+		box-shadow: var(--shadow-card);
+		backdrop-filter: var(--glass-blur);
+	}
+
+	.article-hero {
+		margin-bottom: 2.5rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+		text-align: center;
+	}
+
+	.article-meta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: 0.85rem;
+		color: var(--text-light);
+		margin-bottom: 1.25rem;
+	}
+
+	.category-badge {
+		background: var(--primary-gradient);
+		color: white;
+		padding: 0.2rem 0.75rem;
+		border-radius: var(--radius-full);
+		font-size: 0.75rem;
+		font-weight: 700;
+	}
+
+	.meta-date {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.meta-updated {
+		font-style: italic;
+	}
+
+	.article-title {
+		font-size: clamp(2rem, 4vw, 2.75rem);
+		font-weight: 800;
+		line-height: 1.25;
+		margin: 0 0 1rem 0;
+		color: var(--text-main);
+	}
+
+	.article-desc {
+		font-size: 1.1rem;
+		color: var(--text-muted);
+		line-height: 1.65;
+		margin: 0 0 1.75rem 0;
+	}
+
+	.hero-cover-wrap {
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		box-shadow: var(--shadow-sm);
+		margin-top: 1.5rem;
+	}
+
+	.hero-cover-img {
+		width: 100%;
+		max-height: 440px;
+		object-fit: cover;
+	}
+
+	/* Content typography */
+	.article-content {
+		font-size: 1.08rem;
+		line-height: 1.85;
+		color: var(--text-main);
+	}
+
+	.article-content :global(h2) {
+		font-size: 1.65rem;
+		margin: 2.5rem 0 1rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.article-content :global(h3) {
+		font-size: 1.35rem;
+		margin: 2rem 0 0.85rem;
+	}
+
+	.article-content :global(p) {
+		margin-bottom: 1.5rem;
+	}
+
+	.article-content :global(img) {
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-sm);
+		margin: 2rem auto;
+	}
+
+	.article-content :global(ul),
+	.article-content :global(ol) {
+		margin-bottom: 1.5rem;
+		padding-left: 1.5rem;
+	}
+
+	.article-content :global(li) {
+		margin-bottom: 0.5rem;
+	}
+
+	/* Copyright statement card */
+	.copyright-card {
+		margin-top: 3.5rem;
+		padding: 1.25rem 1.75rem;
+		background: rgba(255, 117, 140, 0.05);
+		border-left: 4px solid var(--primary);
+		border-radius: 0 var(--radius-md) var(--radius-md) 0;
+		font-size: 0.9rem;
+	}
+
+	.copyright-header {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-bottom: 0.4rem;
+		color: var(--primary);
+	}
+
+	.copyright-text {
+		color: var(--text-muted);
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	/* Post bottom nav */
+	.post-bottom-nav {
+		margin-top: 2.5rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.65rem 1.5rem;
+		background: rgba(255, 255, 255, 0.8);
+		border: 1px solid var(--card-border);
+		border-radius: var(--radius-full);
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--text-main);
+		box-shadow: var(--shadow-sm);
+		transition: var(--transition-smooth);
+	}
+
+	.back-link:hover {
+		color: var(--primary);
+		transform: translateX(-3px);
+		box-shadow: var(--shadow-card);
+	}
+
+	@media (max-width: 768px) {
+		.post-article {
+			padding: 2rem 1.5rem;
+		}
+		.article-title {
+			font-size: 1.85rem;
+		}
+	}
+</style>

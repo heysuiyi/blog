@@ -1,0 +1,344 @@
+---
+interface Props {
+	postCount?: number;
+	categories?: string[];
+	tags?: string[];
+}
+
+const {
+	postCount = 5,
+	categories = ['随笔', '前端', '架构', '思考'],
+	tags = ['Astro', 'TypeScript', 'CSS', 'Poetize', '设计']
+} = Astro.props;
+---
+
+<aside class="sidebar-wrapper">
+	<!-- Author Profile Card -->
+	<div class="sidebar-card profile-card">
+		<div class="profile-header">
+			<div class="avatar-ring">
+				<div class="avatar-inner">
+					<span>P</span>
+				</div>
+			</div>
+			<h3 class="author-name">putl</h3>
+			<p class="author-bio">全栈探索者 · 诗意栖居的数字花园</p>
+		</div>
+
+		<div class="stats-row">
+			<a href="/blog" class="stat-item">
+				<span class="stat-num">{postCount}</span>
+				<span class="stat-label">文章</span>
+			</a>
+			<div class="stat-divider"></div>
+			<div class="stat-item">
+				<span class="stat-num">{categories.length}</span>
+				<span class="stat-label">分类</span>
+			</div>
+			<div class="stat-divider"></div>
+			<div class="stat-item">
+				<span class="stat-num">{tags.length}</span>
+				<span class="stat-label">标签</span>
+			</div>
+		</div>
+
+		<div class="social-links">
+			<a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+				</svg>
+			</a>
+			<a href="/rss.xml" target="_blank" class="social-icon" title="RSS 订阅">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 11a9 9 0 0 1 9 9"/>
+					<path d="M4 4a16 16 0 0 1 16 16"/>
+					<circle cx="5" cy="19" r="1"/>
+				</svg>
+			</a>
+			<a href="/about" class="social-icon" title="关于博主">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+					<circle cx="12" cy="7" r="4"/>
+				</svg>
+			</a>
+		</div>
+	</div>
+
+	<!-- Daily Poetic Quote -->
+	<div class="sidebar-card quote-card">
+		<div class="card-title">
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+				<path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+			</svg>
+			<span>诗意微语</span>
+		</div>
+		<p class="quote-text">“做出来只是开始，在不断构建的过程中逐渐看清问题。”</p>
+	</div>
+
+	<!-- Categories & Tag Cloud -->
+	<div class="sidebar-card tags-card">
+		<div class="card-title">
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+				<line x1="7" y1="7" x2="7.01" y2="7"/>
+			</svg>
+			<span>分类与标签</span>
+		</div>
+		<div class="tags-cloud">
+			{categories.map((cat) => (
+				<a href="/blog" class="tag-pill category-pill">{cat}</a>
+			))}
+			{tags.map((tag) => (
+				<a href="/blog" class="tag-pill">{tag}</a>
+			))}
+		</div>
+	</div>
+
+	<!-- Digital Garden Running Counter -->
+	<div class="sidebar-card status-card">
+		<div class="card-title">
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="10"/>
+				<polyline points="12 6 12 12 16 14"/>
+			</svg>
+			<span>花园状态</span>
+		</div>
+		<ul class="status-list">
+			<li>
+				<span class="status-label">核心架构</span>
+				<span class="status-val">Astro 5 + SSG</span>
+			</li>
+			<li>
+				<span class="status-label">设计风格</span>
+				<span class="status-val">Poetize Glass</span>
+			</li>
+			<li>
+				<span class="status-label">运行状态</span>
+				<span class="status-badge">● 正常运转</span>
+			</li>
+		</ul>
+	</div>
+</aside>
+
+<style>
+	.sidebar-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		position: sticky;
+		top: 5.5rem;
+	}
+
+	.sidebar-card {
+		background: var(--card-bg);
+		border: 1px solid var(--card-border);
+		border-radius: var(--radius-lg);
+		padding: 1.5rem;
+		box-shadow: var(--shadow-card);
+		backdrop-filter: var(--glass-blur);
+		transition: var(--transition-smooth);
+	}
+
+	.sidebar-card:hover {
+		box-shadow: var(--shadow-hover);
+		transform: translateY(-2px);
+		border-color: rgba(255, 117, 140, 0.35);
+	}
+
+	/* Profile Card */
+	.profile-header {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 1.25rem;
+	}
+
+	.avatar-ring {
+		width: 76px;
+		height: 76px;
+		border-radius: 50%;
+		padding: 3px;
+		background: var(--primary-gradient);
+		box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+		margin-bottom: 0.85rem;
+		transition: transform 0.5s ease;
+	}
+
+	.sidebar-card:hover .avatar-ring {
+		transform: rotate(360deg);
+	}
+
+	.avatar-inner {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.8rem;
+		font-weight: 800;
+		color: var(--primary);
+	}
+
+	.author-name {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin: 0 0 0.3rem 0;
+	}
+
+	.author-bio {
+		font-size: 0.85rem;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	.stats-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding: 0.85rem 0;
+		border-top: 1px solid rgba(0, 0, 0, 0.05);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+		margin-bottom: 1.25rem;
+	}
+
+	.stat-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: inherit;
+	}
+
+	.stat-num {
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: var(--text-main);
+	}
+
+	.stat-label {
+		font-size: 0.75rem;
+		color: var(--text-light);
+	}
+
+	.stat-divider {
+		width: 1px;
+		height: 24px;
+		background: rgba(0, 0, 0, 0.08);
+	}
+
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 0.85rem;
+	}
+
+	.social-icon {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.8);
+		border: 1px solid var(--card-border);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-muted);
+		box-shadow: var(--shadow-sm);
+		transition: var(--transition-smooth);
+	}
+
+	.social-icon:hover {
+		color: white;
+		background: var(--primary-gradient);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(255, 117, 140, 0.4);
+	}
+
+	/* Common Card Title */
+	.card-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--text-main);
+		margin-bottom: 0.85rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	}
+
+	.card-title svg {
+		color: var(--primary);
+	}
+
+	/* Quote Card */
+	.quote-text {
+		font-size: 0.88rem;
+		line-height: 1.65;
+		color: var(--text-muted);
+		font-style: italic;
+		margin: 0;
+	}
+
+	/* Tags Cloud */
+	.tags-cloud {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.tag-pill {
+		padding: 0.25rem 0.65rem;
+		border-radius: var(--radius-full);
+		font-size: 0.78rem;
+		background: rgba(0, 0, 0, 0.04);
+		color: var(--text-muted);
+		transition: var(--transition-smooth);
+	}
+
+	.tag-pill:hover {
+		background: var(--primary);
+		color: white;
+		transform: translateY(-1px);
+	}
+
+	.tag-pill.category-pill {
+		background: rgba(255, 117, 140, 0.12);
+		color: var(--primary);
+		font-weight: 600;
+	}
+
+	/* Status List */
+	.status-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		font-size: 0.85rem;
+	}
+
+	.status-list li {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.status-label {
+		color: var(--text-muted);
+	}
+
+	.status-val {
+		font-weight: 600;
+		color: var(--text-main);
+	}
+
+	.status-badge {
+		color: #10b981;
+		font-weight: 600;
+		font-size: 0.8rem;
+	}
+</style>

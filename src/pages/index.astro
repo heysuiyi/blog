@@ -2,80 +2,76 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import Hero from '../components/Hero.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import Sidebar from '../components/Sidebar.astro';
 import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+const allPosts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const recentPosts = allPosts.slice(0, 5);
+
+// Extract distinct categories
+const categories = Array.from(new Set(allPosts.map((p) => p.data.category || '随笔')));
 ---
 
 <!doctype html>
 <html lang="zh-CN">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`${SITE_TITLE} - 诗意栖居的数字花园`} description={SITE_DESCRIPTION} />
 	</head>
 
 	<body>
 		<Header />
 
-		<main>
-			<section class="hero">
-				<p class="eyebrow">PUTL / NOTES</p>
+		<Hero 
+			title="记录那些值得留下的东西" 
+			subtitle="三年沉淀，一生所爱 · 诗意栖居的数字花园"
+			description="做出来只是开始。真正有意思的是，在不断构建与文字沉淀的过程中逐渐看清问题。"
+		/>
 
-				<h1>
-					记录那些<br />
-					<span>值得留下的东西。</span>
-				</h1>
-
-				<p class="intro">
-					技术、项目、AI，以及一些还没有答案的长期思考。
-				</p>
-
-				<div class="actions">
-					<a class="primary" href="/blog/">阅读文章</a>
-					<a class="secondary" href="/about/">关于我</a>
-				</div>
-			</section>
-
-			<section class="thought">
-				<div class="line"></div>
-				<p>
-					做出来只是开始。<br />
-					真正有意思的是，在不断构建的过程中逐渐看清问题。
-				</p>
-			</section>
-
-			<section class="latest">
-				<div class="section-head">
-					<div>
-						<p class="eyebrow">RECENT WRITING</p>
-						<h2>最近在写</h2>
+		<main id="main-feed" class="home-container">
+			<div class="content-layout">
+				<!-- Left Column: Article Feed -->
+				<section class="feed-column">
+					<div class="feed-header">
+						<div class="feed-title-wrap">
+							<span class="feed-badge">🌸 RECENT POSTS</span>
+							<h2 class="feed-title">最新收录文章</h2>
+						</div>
+						<a href="/blog/" class="view-all-link">
+							<span>全部文章</span>
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M5 12h14"/>
+								<path d="m12 5 7 7-7 7"/>
+							</svg>
+						</a>
 					</div>
 
-					<a href="/blog/">全部文章 →</a>
+					<div class="posts-list">
+						{recentPosts.map((post, index) => (
+							<ArticleCard post={post} index={index} />
+						))}
+					</div>
+
+					<div class="more-action">
+						<a href="/blog/" class="btn-more">
+							<span>浏览全部 {allPosts.length} 篇归档文章</span>
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M5 12h14"/>
+								<path d="m12 5 7 7-7 7"/>
+							</svg>
+						</a>
+					</div>
+				</section>
+
+				<!-- Right Column: Sidebar -->
+				<div class="sidebar-column">
+					<Sidebar postCount={allPosts.length} categories={categories} />
 				</div>
-
-				<div class="posts">
-					{
-						posts.map((post, index) => (
-							<a class="post" href={`/blog/${post.id}/`}>
-								<div class="index">{String(index + 1).padStart(2, '0')}</div>
-
-								<div class="post-content">
-									<h3>{post.data.title}</h3>
-									<p>{post.data.description}</p>
-								</div>
-
-								<div class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</div>
-							</a>
-						))
-					}
-				</div>
-			</section>
+			</div>
 		</main>
 
 		<Footer />
@@ -83,175 +79,101 @@ const posts = (await getCollection('blog'))
 </html>
 
 <style>
-	main {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 0 2rem;
-	}
-
-	.hero {
-		padding: 9rem 0 7rem;
-		max-width: 900px;
-	}
-
-	.eyebrow {
-		font-size: 0.78rem;
-		letter-spacing: 0.18em;
-		color: #777;
-		font-weight: 600;
-		margin-bottom: 1.5rem;
-	}
-
-	h1 {
-		font-size: clamp(3.4rem, 8vw, 7rem);
-		line-height: 0.98;
-		letter-spacing: -0.055em;
-		margin: 0;
-		font-weight: 700;
-	}
-
-	h1 span {
-		color: #777;
-	}
-
-	.intro {
-		font-size: 1.35rem;
-		line-height: 1.8;
-		color: #555;
-		margin: 2.5rem 0;
-		max-width: 620px;
-	}
-
-	.actions {
-		display: flex;
-		gap: 1rem;
-	}
-
-	.actions a {
-		text-decoration: none;
-		padding: 0.85rem 1.35rem;
-		border-radius: 999px;
-		font-weight: 600;
-	}
-
-	.primary {
-		background: #111;
-		color: white;
-	}
-
-	.secondary {
-		border: 1px solid #ddd;
-		color: #111;
-	}
-
-	.thought {
-		display: grid;
-		grid-template-columns: 100px 1fr;
-		gap: 2rem;
-		padding: 5rem 0;
-		border-top: 1px solid #eee;
-		border-bottom: 1px solid #eee;
-	}
-
-	.line {
+	.home-container {
+		max-width: 1200px;
 		width: 100%;
-		height: 1px;
-		background: #111;
-		margin-top: 1rem;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 5rem;
 	}
 
-	.thought p {
-		font-size: clamp(1.5rem, 3vw, 2.25rem);
-		line-height: 1.55;
-		margin: 0;
-		letter-spacing: -0.02em;
-	}
-
-	.latest {
-		padding: 7rem 0;
-	}
-
-	.section-head {
-		display: flex;
-		align-items: end;
-		justify-content: space-between;
-		margin-bottom: 3rem;
-	}
-
-	.section-head h2 {
-		font-size: 2.4rem;
-		margin: 0;
-	}
-
-	.section-head a {
-		color: #555;
-		text-decoration: none;
-	}
-
-	.posts {
-		border-top: 1px solid #ddd;
-	}
-
-	.post {
+	.content-layout {
 		display: grid;
-		grid-template-columns: 70px 1fr auto;
-		gap: 2rem;
-		align-items: center;
-		padding: 2rem 0;
-		border-bottom: 1px solid #ddd;
-		text-decoration: none;
-		color: inherit;
-		transition: opacity 0.2s ease;
+		grid-template-columns: 1fr 320px;
+		gap: 2.5rem;
+		align-items: start;
 	}
 
-	.post:hover {
-		opacity: 0.55;
+	.feed-header {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 2rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 	}
 
-	.index {
-		color: #999;
-		font-size: 0.85rem;
+	.feed-badge {
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		color: var(--primary);
+		margin-bottom: 0.35rem;
+		display: block;
 	}
 
-	.post h3 {
-		font-size: 1.45rem;
-		margin: 0 0 0.5rem;
-	}
-
-	.post p {
-		color: #666;
+	.feed-title {
+		font-size: 1.65rem;
+		font-weight: 800;
 		margin: 0;
+		color: var(--text-main);
 	}
 
-	.date {
-		color: #999;
-		font-size: 0.85rem;
-		white-space: nowrap;
+	.view-all-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--text-muted);
+		transition: var(--transition-smooth);
 	}
 
-	@media (max-width: 700px) {
-		main {
-			padding: 0 1.25rem;
-		}
+	.view-all-link:hover {
+		color: var(--primary);
+		transform: translateX(3px);
+	}
 
-		.hero {
-			padding: 6rem 0 4rem;
-		}
+	.posts-list {
+		display: flex;
+		flex-direction: column;
+	}
 
-		.thought {
+	.more-action {
+		text-align: center;
+		margin-top: 2rem;
+	}
+
+	.btn-more {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.85rem 2rem;
+		background: rgba(255, 255, 255, 0.8);
+		border: 1px solid var(--card-border);
+		border-radius: var(--radius-full);
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--text-main);
+		backdrop-filter: var(--glass-blur);
+		box-shadow: var(--shadow-sm);
+		transition: var(--transition-smooth);
+	}
+
+	.btn-more:hover {
+		background: white;
+		color: var(--primary);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-card);
+		border-color: rgba(255, 117, 140, 0.4);
+	}
+
+	@media (max-width: 960px) {
+		.content-layout {
 			grid-template-columns: 1fr;
 		}
 
-		.line {
-			width: 60px;
-		}
-
-		.post {
-			grid-template-columns: 40px 1fr;
-		}
-
-		.date {
-			display: none;
+		.sidebar-column {
+			margin-top: 2rem;
 		}
 	}
 </style>
