@@ -24,7 +24,7 @@ const categories = Array.from(new Set(posts.map((p) => p.data.category || '随�
 		
 		<main class="blog-archive-container">
 			<section class="archive-header">
-				<span class="archive-eyebrow">🌸 DIGITAL GARDEN ARCHIVE</span>
+				<span class="archive-eyebrow">✦ DIGITAL GARDEN ARCHIVE</span>
 				<h1 class="archive-title">全部文章与专栏</h1>
 				<p class="archive-subtitle">
 					共收录 {posts.length} 篇文字与思考，随时间沉淀生息。
@@ -49,7 +49,7 @@ const categories = Array.from(new Set(posts.map((p) => p.data.category || '随�
 										<Image width={720} height={360} src={post.data.heroImage} alt="" class="thumb-img" />
 									) : (
 										<div class="thumb-placeholder">
-											<span>{category}</span>
+											<span>✦</span>
 										</div>
 									)}
 									<span class="category-pill">{category}</span>
@@ -148,7 +148,7 @@ const categories = Array.from(new Set(posts.map((p) => p.data.category || '随�
 		background: var(--primary-gradient);
 		color: white;
 		border-color: transparent;
-		box-shadow: 0 4px 12px rgba(255, 117, 140, 0.35);
+		box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
 	}
 
 	.archive-grid {
@@ -172,7 +172,7 @@ const categories = Array.from(new Set(posts.map((p) => p.data.category || '随�
 	.grid-card:hover {
 		transform: translateY(-5px);
 		box-shadow: var(--shadow-hover);
-		border-color: rgba(255, 117, 140, 0.35);
+		border-color: rgba(37, 99, 235, 0.35);
 	}
 
 	.card-thumb-link {
@@ -202,7 +202,7 @@ const categories = Array.from(new Set(posts.map((p) => p.data.category || '随�
 	.thumb-placeholder {
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(135deg, rgba(255, 117, 140, 0.25) 0%, rgba(120, 115, 245, 0.25) 100%);
+		background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(20, 184, 166, 0.15) 100%);
 		display: flex;
 		align-items: center;
 		justify-content: center;

@@ -60,17 +60,6 @@ const { title, description, pubDate, updatedDate, heroImage, category = '随笔'
 					<slot />
 				</div>
 
-				<!-- Copyright & End Notice -->
-				<div class="copyright-card">
-					<div class="copyright-header">
-						<span class="flower-icon">🌸</span>
-						<strong>版权声明 / Copyright</strong>
-					</div>
-					<p class="copyright-text">
-						本文由 <strong>putl</strong> 原创撰写，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 许可协议。转载请注明出处！
-					</p>
-				</div>
-
 				<!-- Post Navigation Footer -->
 				<div class="post-bottom-nav">
 					<a href="/blog" class="back-link">
@@ -229,30 +218,6 @@ const { title, description, pubDate, updatedDate, heroImage, category = '随笔'
 
 	.article-content :global(li) {
 		margin-bottom: 0.5rem;
-	}
-
-	/* Copyright statement card */
-	.copyright-card {
-		margin-top: 3.5rem;
-		padding: 1.25rem 1.75rem;
-		background: rgba(255, 117, 140, 0.05);
-		border-left: 4px solid var(--primary);
-		border-radius: 0 var(--radius-md) var(--radius-md) 0;
-		font-size: 0.9rem;
-	}
-
-	.copyright-header {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
-		margin-bottom: 0.4rem;
-		color: var(--primary);
-	}
-
-	.copyright-text {
-		color: var(--text-muted);
-		margin: 0;
-		line-height: 1.6;
 	}
 
 	/* Post bottom nav */
