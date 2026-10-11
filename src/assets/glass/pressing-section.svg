@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">压制玻璃杯纵剖面</title><desc id="desc">料滴进入模具，冲头下压，热玻璃填入模具与冲头间的侧壁和底部间隙；冲头退出后留下空心杯形。</desc><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#536e72"/></marker><style>text{font-family:'Microsoft YaHei',sans-serif;fill:#263e42}.h{font-size:32px;font-weight:700}.l{font-size:25px}.s{font-size:20px}</style></defs>
+<rect width="1200" height="720" rx="24" fill="#f8f5ed"/><text x="48" y="65" class="h">压制杯：空心由冲头留下</text><text x="48" y="106" class="s">纵剖面原理示意 · 灰色为工具，橙色为热玻璃 · 省略脱模机构</text>
+<g fill="#fffdf8" stroke="#deddd4"><rect x="35" y="148" width="355" height="490" rx="18"/><rect x="422" y="148" width="355" height="490" rx="18"/><rect x="809" y="148" width="355" height="490" rx="18"/></g>
+<g text-anchor="middle" class="l"><text x="212" y="197">① 料滴入模</text><text x="599" y="197">② 冲头下压</text><text x="986" y="197">③ 冲头退出</text></g>
+<g fill="#b7bebc" stroke="#758784" stroke-width="2"><path d="M104 338H134V477H290V338H320V510H104Z"/><path d="M491 338H521V477H677V338H707V510H491Z"/><path d="M878 338H908V477H1064V338H1094V510H878Z"/></g>
+<path d="M169 445Q150 423 177 395Q195 376 208 388Q218 365 238 394Q266 423 253 445Z" fill="#e9a15e" stroke="#bd7239" stroke-width="2"/>
+<path d="M160 260H264V325H160Z" fill="#7e8e8c"/><path d="M212 222V248" stroke="#536e72" stroke-width="4" marker-end="url(#a)"/>
+<path d="M523 341H542V451H656V341H675V475H523Z" fill="#e9a15e" stroke="#bd7239" stroke-width="2"/><path d="M545 264H653V449H545Z" fill="#7e8e8c"/><path d="M599 225V253" stroke="#536e72" stroke-width="4" marker-end="url(#a)"/>
+<path d="M910 341H929V451H1043V341H1062V475H910Z" fill="#e9a15e" stroke="#bd7239" stroke-width="2"/><path d="M932 250H1040V318H932Z" fill="#7e8e8c"/><path d="M986 242V213" stroke="#536e72" stroke-width="4" marker-end="url(#a)"/>
+<g class="s" text-anchor="middle"><text x="212" y="555">先放入一份热玻璃</text><text x="599" y="555">玻璃填入侧壁与底部间隙</text><text x="986" y="555">中间留下盛水的空间</text></g><path d="M620 465 730 435" fill="none" stroke="#536e72" stroke-width="2"/><text x="697" y="421" class="s">杯底</text><text x="600" y="683" text-anchor="middle" class="s">内侧形状由冲头限定，外侧形状由模具限定；图中间隙为便于辨认而放大。</text>
+</svg>
