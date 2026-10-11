@@ -1,4 +1,6 @@
 ---
+import { SITE_TITLE } from '../consts';
+
 const today = new Date();
 ---
 
@@ -15,7 +17,7 @@ const today = new Date();
 		</div>
 
 		<div class="copyright-line">
-			&copy; {today.getFullYear()} <strong>putl</strong>. All rights reserved.
+			&copy; {today.getFullYear()} <strong>{SITE_TITLE}</strong>. All rights reserved.
 			<span class="divider">/</span>
 			Powered by <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
 		</div>
