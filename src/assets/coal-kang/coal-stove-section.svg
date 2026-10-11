@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">蜂窝煤与煤炉纵剖面</title>
+  <desc id="desc">左侧为煤饼俯视及纵剖，显示贯穿孔。右侧为带排烟口煤炉的简化纵剖面：空气从下方进入，经过炉箅和煤饼孔道，烟气汇入上部空间后从侧面烟道排走。</desc>
+  <defs>
+    <marker id="air" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#2786a0"/></marker>
+    <marker id="gas" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#c86034"/></marker>
+    <pattern id="lining" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#e4d3b6"/><path d="M0 14 14 0" stroke="#c3ae89" stroke-width="1"/></pattern>
+    <style>text{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#263e42}.heading{font-size:30px;font-weight:700}.label{font-size:24px}.small{font-size:20px}.leader{fill:none;stroke:#788887;stroke-width:2}</style>
+  </defs>
+  <rect width="1200" height="760" rx="24" fill="#f8f5ed"/>
+  <text x="52" y="58" class="heading">蜂窝煤：让空气穿过煤体</text>
+  <text x="52" y="94" class="small">结构与气流示意 · 非施工图 · 孔数与比例经过简化</text>
+  <rect x="38" y="122" width="424" height="555" rx="18" fill="#eeebe2"/>
+  <text x="68" y="162" class="label">煤饼俯视</text>
+  <circle cx="240" cy="296" r="104" fill="#414947"/>
+  <g fill="#f8f5ed" stroke="#262e2c" stroke-width="3">
+    <circle cx="240" cy="296" r="16"/><circle cx="190" cy="266" r="16"/><circle cx="240" cy="236" r="16"/><circle cx="290" cy="266" r="16"/><circle cx="190" cy="326" r="16"/><circle cx="240" cy="356" r="16"/><circle cx="290" cy="326" r="16"/>
+  </g>
+  <path d="M117 296H363" stroke="#b9c5c2" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="68" y="432" class="label">沿孔道纵剖</text>
+  <rect x="138" y="458" width="204" height="128" rx="3" fill="#414947"/>
+  <rect x="224" y="458" width="32" height="128" fill="#f8f5ed"/>
+  <path d="M240 622V478" fill="none" stroke="#2786a0" stroke-width="5" marker-end="url(#air)"/>
+  <path d="M257 500H365" class="leader"/><rect x="283" y="457" width="79" height="30" rx="4" fill="#eeebe2"/><text x="291" y="480" class="small">贯穿孔</text>
+  <text x="68" y="652" class="small">煤饼成形时，冲针留下通孔。</text>
+  <text x="526" y="162" class="label">带排烟口煤炉 · 纵剖示意</text>
+  <!-- Sealed upper chamber and side flue; bottom left gap is the air inlet. -->
+  <path d="M617 600V222H913V258H1100M1100 300H913V634H617V628" fill="none" stroke="#495b5a" stroke-width="12"/>
+  <path d="M637 590V244H657V590ZM874 317H897V614H874Z" fill="url(#lining)"/>
+  <rect x="660" y="320" width="212" height="102" fill="#555b54"/>
+  <rect x="660" y="435" width="212" height="110" fill="#865541"/>
+  <g fill="#fff0d4"><path d="M691 320h26v102h-26zM753 320h26v102h-26zM815 320h26v102h-26zM691 435h26v110h-26zM753 435h26v110h-26zM815 435h26v110h-26z"/></g>
+  <g stroke="#495b5a" stroke-width="9"><path d="M660 563H687M722 563H749M784 563H811M846 563H872"/></g>
+  <path d="M527 612H706V579" fill="none" stroke="#2786a0" stroke-width="5" marker-end="url(#air)"/>
+  <g fill="none" stroke="#c86034" stroke-width="5" marker-end="url(#gas)"><path d="M704 540V336"/><path d="M766 540V336"/><path d="M828 540V336"/><path d="M766 315V279H1081"/></g>
+  <text x="948" y="239" class="small">接室外烟囱</text>
+  <path d="M878 369H944" class="leader"/><text x="955" y="377" class="label">煤饼</text>
+  <path d="M878 491H944" class="leader"/><text x="955" y="484" class="label">高温煤层</text><text x="955" y="513" class="small">颜色仅作区分</text>
+  <path d="M878 563H944" class="leader"/><text x="955" y="571" class="label">炉箅</text>
+  <text x="524" y="581" class="small">进气</text><text x="725" y="612" class="small">灰室</text>
+  <text x="523" y="666" class="small">孔道连通有利于通气；堵灰与缺氧会妨碍燃烧。</text>
+  <path d="M65 715H112" stroke="#2786a0" stroke-width="4" marker-end="url(#air)"/><text x="128" y="723" class="small">进入的空气</text>
+  <path d="M325 715H372" stroke="#c86034" stroke-width="4" marker-end="url(#gas)"/><text x="388" y="723" class="small">向上的气流与排出的烟气（可能含 CO）</text>
+</svg>

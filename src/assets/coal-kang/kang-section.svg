@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">灶连炕纵剖面：烟气排出，热量储存在炕体</title>
+  <desc id="desc">左侧灶膛燃烧，烟气向右通过炕下通道，再沿右侧烟囱上升排到室外。热量穿过炕面向上释放。图中用一条通道代表实际炕内的复杂烟道。</desc>
+  <defs>
+    <marker id="smoke" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 7 4 0 8Z" fill="#b96239"/></marker>
+    <marker id="heat" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 7 4 0 8Z" fill="#d49b2a"/></marker>
+    <marker id="air" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 7 4 0 8Z" fill="#2786a0"/></marker>
+    <pattern id="brick" width="80" height="36" patternUnits="userSpaceOnUse"><rect width="80" height="36" fill="#d8c1a1"/><path d="M0 0H80M0 36H80M40 0V18M0 18H80M10 18V36" fill="none" stroke="#b69d7d" stroke-width="1.5"/></pattern>
+    <style>text{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#263e42}.heading{font-size:30px;font-weight:700}.label{font-size:24px}.small{font-size:20px}</style>
+  </defs>
+  <rect width="1200" height="600" rx="24" fill="#f8f5ed"/>
+  <text x="52" y="55" class="heading">土炕：烟气经过内部，热量留在砖土中</text>
+  <text x="52" y="92" class="small">灶连炕纵剖示意 · 烟道布局简化 · 非施工图</text>
+  <!-- Chimney walls terminate at the open outlet. -->
+  <rect x="984" y="153" width="28" height="220" fill="url(#brick)"/>
+  <rect x="1060" y="153" width="28" height="326" fill="url(#brick)"/>
+  <rect x="351" y="320" width="633" height="53" fill="url(#brick)"/>
+  <rect x="351" y="308" width="633" height="12" rx="4" fill="#ba7f58"/>
+  <rect x="315" y="441" width="773" height="38" fill="url(#brick)"/>
+  <rect x="330" y="373" width="654" height="68" fill="#f0dfc5"/>
+  <path d="M140 414V299H317V376H351M140 442V479H351V441" fill="url(#brick)" stroke="#ad9271" stroke-width="2"/>
+  <path d="M176 340H281V441H176Z" fill="#f0dfc5"/>
+  <path d="M280 377H351V440H280Z" fill="#f0dfc5"/>
+  <path d="M164 294Q229 348 294 294Z" fill="#526360"/>
+  <path d="M163 293H295" stroke="#334b48" stroke-width="6"/>
+  <path d="M207 419C179 401 214 375 211 357C246 379 227 389 247 390C265 409 242 430 207 419Z" fill="#c96535"/>
+  <path d="M219 422C205 407 229 395 229 383C246 407 240 418 219 422Z" fill="#e9b54b"/>
+  <path d="M193 437 260 425M200 426 262 439" stroke="#685443" stroke-width="7" stroke-linecap="round"/>
+  <path d="M67 429H176" stroke="#2786a0" stroke-width="5" fill="none" marker-end="url(#air)"/>
+  <g fill="none" stroke="#b96239" stroke-width="5" marker-end="url(#smoke)">
+    <path d="M270 399H432"/><path d="M458 409H627"/><path d="M661 409H824"/><path d="M858 409H1036V323"/><path d="M1036 295V147"/>
+  </g>
+  <g fill="none" stroke="#d49b2a" stroke-width="5" marker-end="url(#heat)">
+    <path d="M470 349V235"/><path d="M636 349V235"/><path d="M802 349V235"/>
+  </g>
+  <text x="173" y="272" class="label">锅</text>
+  <text x="68" y="396" class="small">进气</text>
+  <text x="179" y="514" class="label">灶膛</text>
+  <text x="515" y="514" class="label">炕内烟道</text>
+  <rect x="516" y="258" width="238" height="34" rx="5" fill="#f8f5ed"/><text x="530" y="283" class="label">炕面与砖土蓄热</text>
+  <text x="488" y="206" class="label" fill="#a17216">热量传给人体和房间</text>
+  <text x="931" y="127" class="label">烟气排到室外</text>
+  <text x="1100" y="269" class="label">烟</text><text x="1100" y="302" class="label">囱</text>
+  <path d="M56 554H103" stroke="#b96239" stroke-width="4" marker-end="url(#smoke)"/><text x="120" y="562" class="small">烟气流动</text>
+  <path d="M299 554H346" stroke="#d49b2a" stroke-width="4" marker-end="url(#heat)"/><text x="362" y="562" class="small">热量传递</text>
+  <text x="574" y="562" class="small">实际炕内还有支撑及导流结构，图中省略。</text>
+</svg>
