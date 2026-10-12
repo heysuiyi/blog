@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">同样一千人，不同的访客构成</title>
+  <desc id="desc">A页九成新客一成老客，整体报名率百分之十。B页一成新客九成老客，整体报名率百分之十七。每格代表百分之十的访客。虚构数据。</desc>
+  <rect width="1200" height="600" rx="28" fill="#f5f1e9"/>
+  <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#203a43">
+    <text x="60" y="75" font-size="36" font-weight="700">同样 1000 人，分母里的人却不同</text>
+    <rect x="62" y="105" width="24" height="24" rx="5" fill="#197b79"/>
+    <text x="100" y="126" font-size="24">新客</text>
+    <rect x="192" y="105" width="24" height="24" rx="5" fill="#dc783d"/>
+    <text x="230" y="126" font-size="24">老客</text>
+    <text x="380" y="126" font-size="24">每格 = 该页面 10% 的访客</text>
+    <rect x="52" y="165" width="536" height="355" rx="22" fill="#fff" stroke="#d4e2dd" stroke-width="2"/>
+    <rect x="612" y="165" width="536" height="355" rx="22" fill="#fff" stroke="#ebdac9" stroke-width="2"/>
+    <text x="82" y="216" font-size="30" font-weight="700">A 页</text>
+    <text x="642" y="216" font-size="30" font-weight="700">B 页</text>
+    <g fill="#197b79">
+      <rect x="82" y="248" width="40" height="62" rx="6"/><rect x="130" y="248" width="40" height="62" rx="6"/>
+      <rect x="178" y="248" width="40" height="62" rx="6"/><rect x="226" y="248" width="40" height="62" rx="6"/>
+      <rect x="274" y="248" width="40" height="62" rx="6"/><rect x="322" y="248" width="40" height="62" rx="6"/>
+      <rect x="370" y="248" width="40" height="62" rx="6"/><rect x="418" y="248" width="40" height="62" rx="6"/>
+      <rect x="466" y="248" width="40" height="62" rx="6"/><rect x="642" y="248" width="40" height="62" rx="6"/>
+    </g>
+    <g fill="#dc783d">
+      <rect x="514" y="248" width="40" height="62" rx="6"/><rect x="690" y="248" width="40" height="62" rx="6"/>
+      <rect x="738" y="248" width="40" height="62" rx="6"/><rect x="786" y="248" width="40" height="62" rx="6"/>
+      <rect x="834" y="248" width="40" height="62" rx="6"/><rect x="882" y="248" width="40" height="62" rx="6"/>
+      <rect x="930" y="248" width="40" height="62" rx="6"/><rect x="978" y="248" width="40" height="62" rx="6"/>
+      <rect x="1026" y="248" width="40" height="62" rx="6"/><rect x="1074" y="248" width="40" height="62" rx="6"/>
+    </g>
+    <text x="82" y="351" font-size="26">新客 900 人 · 老客 100 人</text>
+    <text x="642" y="351" font-size="26">新客 100 人 · 老客 900 人</text>
+    <text x="82" y="405" font-size="24">整体报名率</text>
+    <text x="642" y="405" font-size="24">整体报名率</text>
+    <text x="82" y="477" font-size="58" font-weight="700">10%</text>
+    <text x="258" y="469" font-size="24">100 / 1000</text>
+    <text x="642" y="477" font-size="58" font-weight="700">17%</text>
+    <text x="818" y="469" font-size="24">170 / 1000</text>
+    <text x="60" y="565" font-size="23">虚构数据 · 色块表示访客构成，不表示报名率 · 分组报名率见正文表格</text>
+  </g>
+</svg>
