@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<title>从粉料到成品笔芯的状态变化</title>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#264653"/></marker><pattern id="dots" width="15" height="13" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2" fill="#264653"/></pattern></defs>
+<rect width="1200" height="660" fill="#faf5e9"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#264653"><text x="65" y="78" font-size="34" font-weight="bold">外形像细条，还不等于笔芯已经做好</text><text x="65" y="116" font-size="20">材料状态示意 · 干燥、烧成和浸渍是不同工序</text></g>
+<g stroke="#264653" stroke-width="3" fill="none"><path d="M65 300Q130 220 195 300Z" fill="url(#dots)"/><path d="M205 300Q250 245 295 300Z" stroke="#ab653e"/><path d="M371 301Q360 250 410 238Q435 212 470 241Q518 239 523 299Z" fill="#ab653e" fill-opacity=".17"/>
+<path d="M604 259H788M604 278H788M604 297H788" opacity=".4" stroke-width="7"/>
+<path d="M900 259H1090M900 278H1090M900 297H1090" stroke-width="7"/>
+</g>
+<g stroke="#264653" stroke-width="2" fill="none" marker-end="url(#a)"><path d="M309 275H347"/><path d="M545 275H584"/><path d="M811 275H866"/></g>
+<g font-family="Microsoft YaHei, sans-serif" fill="#264653" text-anchor="middle" font-size="23"><text x="180" y="185">① 细粉原料</text><text x="445" y="185">② 混匀湿料</text><text x="696" y="185">③ 挤出、切长</text><text x="995" y="185">④ 处理后的成品芯</text><text x="180" y="350" font-size="20">石墨 + 黏土</text><text x="445" y="350" font-size="20">加水混合，可成形</text><text x="696" y="350" font-size="20">细条湿坯，尚需处理</text><text x="995" y="350" font-size="20">送往木板夹芯工序</text></g>
+<path d="M696 371V408H1050" stroke="#ab653e" stroke-width="2" fill="none"/>
+<g stroke="#ab653e" stroke-width="2" fill="none"><rect x="90" y="440" width="275" height="85" rx="6"/><rect x="463" y="440" width="275" height="85" rx="6"/><rect x="836" y="440" width="275" height="85" rx="6"/></g>
+<g font-family="Microsoft YaHei, sans-serif" fill="#264653" text-anchor="middle"><text x="228" y="474" font-size="25">干燥</text><text x="228" y="504" font-size="19">移走水分</text><text x="601" y="474" font-size="25">烧成与冷却</text><text x="601" y="504" font-size="19">使芯体获得所需结合</text><text x="974" y="474" font-size="25">蜡、油浸渍</text><text x="974" y="504" font-size="19">改善涂写感受</text></g>
+<g stroke="#264653" stroke-width="2" marker-end="url(#a)"><path d="M385 482H439"/><path d="M760 482H813"/></g>
+<text x="65" y="600" font-family="Microsoft YaHei, sans-serif" fill="#264653" font-size="20">下排展开③到④的处理；浅色仅用于区分湿坯，不表示实际颜色。</text>
+</svg>

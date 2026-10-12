@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<title>木板夹芯：沿铅笔长度方向看的端面剖面</title>
+<defs><pattern id="wood" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16L16 0" stroke="#ab653e" stroke-width="1" opacity=".3"/></pattern><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#264653"/></marker></defs>
+<rect width="1200" height="660" fill="#faf5e9"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#264653"><text x="65" y="78" font-size="34" font-weight="bold">笔芯先夹进木板，再分成一支支笔</text><text x="65" y="116" font-size="20">端面剖面 · 圆点是长芯的截面 · 槽数与比例简化</text></g>
+<g stroke="#ab653e" stroke-width="3" fill="url(#wood)">
+<path d="M65 210H365V275H339A14 14 0 0 0 311 275H269A14 14 0 0 0 241 275H199A14 14 0 0 0 171 275H129A14 14 0 0 0 101 275H65Z"/>
+<path d="M65 405H101A14 14 0 0 0 129 405H171A14 14 0 0 0 199 405H241A14 14 0 0 0 269 405H311A14 14 0 0 0 339 405H365V470H65Z"/>
+<rect x="485" y="275" width="300" height="130"/><path d="M485 340H785"/>
+<path d="M950 295L1028 295L1067 363L1028 431H950L911 363Z"/><path d="M911 363H1067"/>
+</g>
+<g fill="#264653"><circle cx="115" cy="340" r="13"/><circle cx="185" cy="340" r="13"/><circle cx="255" cy="340" r="13"/><circle cx="325" cy="340" r="13"/><circle cx="535" cy="340" r="13"/><circle cx="605" cy="340" r="13"/><circle cx="675" cy="340" r="13"/><circle cx="745" cy="340" r="13"/><circle cx="989" cy="363" r="19"/></g>
+<g stroke="#264653" stroke-width="2" fill="none" marker-end="url(#a)"><path d="M215 289V314"/><path d="M215 393V367"/><path d="M388 340H459"/><path d="M810 340H884"/></g>
+<g font-family="Microsoft YaHei, sans-serif" fill="#264653" text-anchor="middle"><text x="215" y="180" font-size="25">① 带槽木板与芯</text><text x="635" y="180" font-size="25">② 施胶、合板、压合</text><text x="989" y="180" font-size="25">③ 分切与成形</text><text x="215" y="510" font-size="20">上下槽对齐，包住笔芯</text><text x="635" y="510" font-size="20">仍是一块含多根芯的板坯</text><text x="989" y="510" font-size="20">单支六角笔杆示例</text></g>
+<path d="M65 550H1135" stroke="#ab653e"/><g font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#264653"><text x="65" y="590">斜线：木材　　深色圆点：笔芯　　合板接缝贴合，胶膜厚度省略</text></g>
+</svg>
