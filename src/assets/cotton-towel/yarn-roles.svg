@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<title>毛巾的三组纱线：毛经起圈，地经和纬纱形成底布</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#274c5a" stroke-width="1.5"/></marker><pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 10L10 0" stroke="#274c5a" opacity=".18"/></pattern></defs>
+<rect width="1200" height="660" fill="#fbf5e8"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#274c5a">
+<text x="60" y="70" font-size="34" font-weight="bold">毛圈与底布，在织造时一起形成</text>
+<text x="60" y="110" font-size="21">纱线分工示意 · 棕色：毛经　蓝色：底布系统</text>
+<text x="60" y="182" font-size="25">分别送经</text><text x="730" y="182" font-size="25">成布后的局部放大</text>
+</g>
+<g fill="url(#hatch)" stroke="#274c5a" stroke-width="3"><rect x="90" y="370" width="120" height="66" rx="14"/><ellipse cx="90" cy="403" rx="14" ry="33"/></g>
+<g fill="none" stroke="#aa623b" stroke-width="3"><rect x="90" y="232" width="120" height="66" rx="14"/><ellipse cx="90" cy="265" rx="14" ry="33"/><path d="M210 250L370 276M210 263L370 289M210 276L370 302"/></g>
+<g fill="none" stroke="#274c5a" stroke-width="3"><path d="M210 388L370 328M210 401L370 341M210 414L370 354"/></g>
+<rect x="370" y="251" width="160" height="145" rx="8" fill="#fbf5e8" stroke="#274c5a" stroke-width="3"/>
+<path d="M450 488V406" stroke="#274c5a" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M540 322H677" stroke="#274c5a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="728" y="349" width="390" height="40" fill="url(#hatch)" stroke="#274c5a" stroke-width="3"/>
+<path d="M735 361L765 361C768 351 761 259 786 259C811 259 804 351 815 361L850 361C853 351 846 259 871 259C896 259 889 351 900 361L935 361C938 351 931 259 956 259C981 259 974 351 985 361L1020 361C1023 351 1016 259 1041 259C1066 259 1059 351 1070 361L1107 361" fill="none" stroke="#aa623b" stroke-width="7" stroke-linecap="round"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#274c5a" font-size="22">
+<text x="100" y="220" fill="#aa623b">毛经轴</text><text x="95" y="476">地经轴</text>
+<text x="401" y="314">织造区</text><text x="390" y="350" font-size="19">开口·引纬·打纬</text>
+<text x="401" y="524">纬纱送入</text><text x="559" y="299">连续布</text>
+<text x="780" y="234" fill="#aa623b">毛经多出的长度弯成圈</text>
+<text x="735" y="434">底布：地经与纬纱交织支承</text>
+<text x="735" y="475" font-size="19">圈脚参与交织；没有胶层</text>
+<text x="60" y="600" font-size="20">仅示意一侧毛圈，省略完整交织次序；线条粗细、圈高与设备位置不按比例。</text>
+</g></svg>
