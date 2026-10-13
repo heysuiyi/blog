@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">同一段四小时，三种互斥用法</title>
+  <desc id="desc">A 急单新增现金贡献 1200 元，B 订单 1500 元，闲置 0 元。选 A 放弃的最佳替代是 B，机会成本 1500 元，贡献差额为负 300 元。虚构案例。</desc>
+  <rect width="1200" height="720" fill="#f3eddf"/>
+  <g fill="#dfd5c3" opacity=".5"><circle cx="60" cy="63" r="5"/><circle cx="1120" cy="650" r="6"/><path d="M20 200h75v4H20zM1080 90h70v4h-70zM70 660h85v4H70z"/></g>
+  <g font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#2e342f">
+    <text x="60" y="72" font-size="38" font-weight="700">同一段四小时，三种互斥用法</text>
+    <path d="M380 108L822 114 814 210 387 204z" fill="#ded4be"/>
+    <path d="M374 102L816 108 808 204 381 198z" fill="#fffdf5"/>
+    <rect x="539" y="94" width="125" height="22" fill="#d5c29b" opacity=".65" transform="rotate(-3 600 105)"/>
+    <text x="600" y="149" text-anchor="middle" font-size="27" font-weight="700">周六 13:00—17:00</text>
+    <text x="600" y="183" text-anchor="middle" font-size="23">同一台设备 · 只能选一项</text>
+    <path d="M600 210V242M218 279V242H982V279M600 242V279" fill="none" stroke="#6a7066" stroke-width="3"/>
+    <path d="M58 288L375 282 387 506 63 513z" fill="#ddcab5"/>
+    <path d="M50 280L367 274 379 498 55 505z" fill="#f5d6bd"/>
+    <path d="M437 282L772 289 767 511 429 504z" fill="#b6c8b5"/>
+    <path d="M429 274L764 281 759 503 421 496z" fill="#d5e4cd"/>
+    <path d="M833 286L1155 280 1159 506 826 512z" fill="#cecfc9"/>
+    <path d="M825 278L1147 272 1151 498 818 504z" fill="#e5e6df"/>
+    <g font-size="28" font-weight="700" text-anchor="middle"><text x="214" y="332">A · 接急单</text><text x="596" y="332">B · 接另一单</text><text x="985" y="332">C · 闲置</text></g>
+    <g font-size="25" text-anchor="middle"><text x="214" y="383">1800 − 600</text><text x="596" y="383">2200 − 700</text><text x="985" y="383">0 − 0</text></g>
+    <g font-size="42" font-weight="700" text-anchor="middle"><text x="214" y="441">1200 元</text><text x="596" y="441" fill="#315b3e">1500 元</text><text x="985" y="441">0 元</text></g>
+    <g font-size="21" text-anchor="middle"><text x="214" y="477">新增现金贡献</text><text x="596" y="477">当前最佳选项</text><text x="985" y="477">仅按现金尺度</text></g>
+    <path d="M110 549L1095 542 1086 662 115 669z" fill="#fffdf6"/>
+    <text x="600" y="588" text-anchor="middle" font-size="28" font-weight="700">选 A 放弃 B：机时的机会成本 = 1500 元</text>
+    <text x="600" y="634" text-anchor="middle" font-size="26">A 比 B 少留下：1500 − 1200 = 300 元</text>
+    <text x="60" y="702" font-size="19" fill="#62685e">作者示意 · 虚构案例 · 纸张面积不代表金额 · 连线表示可选用法</text>
+  </g>
+</svg>
