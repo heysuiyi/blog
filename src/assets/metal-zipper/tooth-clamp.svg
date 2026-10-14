@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<title>链牙怎样夹住布带：单颗链牙局部截面</title>
+<rect width="1200" height="660" fill="#f8f6f1"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#47676a"/></marker></defs>
+<g font-family="Microsoft YaHei, sans-serif" fill="#29494c">
+<text x="60" y="75" font-size="34" font-weight="bold">齿脚夹住带边，齿头朝向另一排齿</text>
+<text x="60" y="115" font-size="22">沿带长方向看 · 单颗链牙的夹持关系 · 几何形状简化</text>
+<rect x="50" y="155" width="505" height="390" rx="28" fill="#e8eeeb"/>
+<rect x="645" y="155" width="505" height="390" rx="28" fill="#eeece4"/>
+<text x="80" y="205" font-size="27">夹持前</text><text x="675" y="205" font-size="27">夹持后</text>
+</g>
+<g fill="#9dc5c0" stroke="#47676a" stroke-width="3">
+<path d="M90 335H283V365H90Z"/><circle cx="300" cy="350" r="35"/>
+<path d="M685 335H878V365H685Z"/><circle cx="895" cy="350" r="35"/>
+</g>
+<g fill="#d5ae7f" stroke="#98724e" stroke-width="4" stroke-linejoin="round">
+<path d="M260 260L375 302H460V398H375L260 440L250 411L350 375V325L250 289Z"/>
+<path d="M858 305H965V302H1055V398H965V395H858V372H925V328H858Z"/>
+</g>
+<g stroke="#47676a" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M285 225V265"/><path d="M285 480V435"/><path d="M575 350H625"/></g>
+<g stroke="#47676a" stroke-width="2" fill="none"><path d="M155 365V477"/><path d="M300 350L345 480"/><path d="M1010 400V480"/><path d="M869 309L810 265"/></g>
+<g font-family="Microsoft YaHei, sans-serif" fill="#29494c" font-size="22">
+<text x="105" y="512">平布带</text><text x="310" y="512">鼓起的带边</text>
+<text x="710" y="255">收拢的齿脚</text><text x="970" y="512">啮合头部</text>
+<text x="60" y="595">绿色：纺织带边　　赭色：金属链牙　　箭头：夹压动作示意</text>
+<text x="60" y="628" font-size="19">AI 辅助 SVG 示意 · 省略头部凹凸、纱线和工具 · 非真实齿形、非加工尺寸</text>
+</g></svg>

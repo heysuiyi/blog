@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<title>拉头内部的 Y 形通道：闭合时的相对运动</title>
+<rect width="1200" height="660" fill="#f8f6f1"/>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#47676a"/></marker></defs>
+<g font-family="Microsoft YaHei, sans-serif" fill="#29494c">
+<text x="60" y="75" font-size="34" font-weight="bold">拉头向前走，两排链牙在通道里汇合</text>
+<text x="60" y="115" font-size="22">去掉上翼板后的内部示意 · 仅表示路径，不表示实际齿形</text></g>
+<path d="M330 170L407 300L465 405V545" fill="none" stroke="#acd1c8" stroke-width="62"/>
+<path d="M680 170L603 300L545 405V545" fill="none" stroke="#b5c9dd" stroke-width="62"/>
+<path d="M323 245Q315 245 327 280L432 447V475H578V447L683 280Q695 245 687 245H588L505 345L422 245Z" fill="#dddcd6" fill-opacity=".72" stroke="#657779" stroke-width="5"/>
+<path d="M440 245H570L505 345Z" fill="#aeb9b5" stroke="#657779" stroke-width="4"/>
+<g fill="#d5ae7f" stroke="#98724e" stroke-width="2">
+<rect x="359" y="179" width="32" height="21" rx="7" transform="rotate(-30 375 189)"/>
+<rect x="383" y="219" width="32" height="21" rx="7" transform="rotate(-30 399 229)"/>
+<rect x="407" y="259" width="32" height="21" rx="7" transform="rotate(-30 423 269)"/>
+<rect x="432" y="300" width="32" height="21" rx="7" transform="rotate(-30 448 310)"/>
+<rect x="455" y="342" width="32" height="21" rx="7"/>
+<rect x="478" y="390" width="40" height="20" rx="7"/><rect x="478" y="434" width="40" height="20" rx="7"/>
+<rect x="478" y="478" width="40" height="20" rx="7"/><rect x="478" y="522" width="40" height="20" rx="7"/>
+</g>
+<g fill="#b7c9df" stroke="#647e9c" stroke-width="2">
+<rect x="608" y="199" width="32" height="21" rx="7" transform="rotate(30 624 209)"/>
+<rect x="584" y="239" width="32" height="21" rx="7" transform="rotate(30 600 249)"/>
+<rect x="560" y="279" width="32" height="21" rx="7" transform="rotate(30 576 289)"/>
+<rect x="537" y="320" width="32" height="21" rx="7" transform="rotate(30 553 330)"/>
+<rect x="516" y="363" width="32" height="21" rx="7"/>
+<rect x="492" y="412" width="40" height="20" rx="7"/><rect x="492" y="456" width="40" height="20" rx="7"/>
+<rect x="492" y="500" width="40" height="20" rx="7"/>
+</g>
+<g stroke="#47676a" fill="none" marker-end="url(#a)"><path d="M200 435V275" stroke-width="8"/><path d="M300 180L334 235" stroke-width="3"/><path d="M710 180L676 235" stroke-width="3"/><path d="M575 490V545" stroke-width="3"/></g>
+<g font-family="Microsoft YaHei, sans-serif" fill="#29494c" font-size="23">
+<text x="80" y="475">拉头移动方向</text><text x="80" y="510">向上＝闭合</text>
+<text x="770" y="195">上方：两排齿分开</text>
+<text x="770" y="280">中间：分隔结构</text>
+<text x="770" y="355">小箭头表示链牙</text><text x="770" y="389">相对拉头的运动</text>
+<text x="770" y="490">下方：链牙交错啮合</text>
+<text x="60" y="595">实际使用时布带大致不动，拉头沿链条移动；打开时运动方向相反。</text>
+<text x="60" y="628" font-size="19">AI 辅助 SVG 示意 · 省略拉片、锁定件和立体齿头 · 色块间隙不代表实际配合间隙</text>
+</g>
+<g stroke="#657779" stroke-width="2" fill="none"><path d="M750 275H570"/><path d="M750 485H610"/></g>
+</svg>
