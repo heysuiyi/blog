@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">报警来自两条线路</title><desc id="desc">虚构一万件零件，缺陷一百件中九十件报警，合格九千九百件中四百九十五件误报。报警共五百八十五件，缺陷比例约百分之十五点三八。</desc>
+<rect width="1200" height="720" fill="#f7f4eb"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#162b3b">
+<text x="55" y="68" font-size="36" font-weight="700">红灯的两条来路</text><text x="55" y="108" font-size="22">虚构频数示意 · 从左向右读 · 线宽不代表件数</text>
+<g fill="none" stroke-width="10" stroke-linejoin="round">
+<path d="M90 340 L180 340 L270 230 L700 230 L840 340 L910 340" stroke="#bc5724"/>
+<path d="M90 340 L180 340 L270 450 L700 450 L840 340 L910 340" stroke="#237693"/>
+</g>
+<g fill="#fff" stroke-width="6"><circle cx="90" cy="340" r="15" stroke="#162b3b"/><circle cx="315" cy="230" r="13" stroke="#bc5724"/><circle cx="625" cy="230" r="13" stroke="#bc5724"/><circle cx="315" cy="450" r="13" stroke="#237693"/><circle cx="625" cy="450" r="13" stroke="#237693"/><circle cx="910" cy="340" r="16" stroke="#162b3b"/></g>
+<path d="M480 218 L500 230 L480 242 Z" fill="#bc5724"/><path d="M480 438 L500 450 L480 462 Z" fill="#237693"/>
+<text x="55" y="390" font-size="25">送检</text><text x="55" y="424" font-size="25">10000 件</text>
+<text x="260" y="178" font-size="26">缺陷 100 件</text><text x="260" y="278" font-size="23">占送检的 1%</text>
+<text x="565" y="178" font-size="26">报警 90 件</text><text x="565" y="278" font-size="23">检出率 90%</text>
+<text x="260" y="400" font-size="26">合格 9900 件</text><text x="260" y="504" font-size="23">占送检的 99%</text>
+<text x="565" y="400" font-size="26">误报 495 件</text><text x="565" y="504" font-size="23">误报率 5%</text>
+<text x="935" y="318" font-size="27" font-weight="700">报警集合</text><text x="935" y="361" font-size="32" font-weight="700">585 件</text><text x="935" y="401" font-size="21">90 + 495</text>
+<rect x="55" y="556" width="1090" height="112" rx="16" fill="#162b3b"/>
+<text x="85" y="603" font-size="30" fill="#fff" font-weight="700">报警中有缺陷：90 ÷ 585 ≈ 15.38%</text><text x="85" y="641" font-size="22" fill="#d4e3eb">未报警的 9415 件未画出：10 件漏检 + 9405 件合格</text>
+</g></svg>
