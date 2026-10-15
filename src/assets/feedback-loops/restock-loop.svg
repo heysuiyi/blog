@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">货还在路上，缺口已经被补过</title>
+  <desc id="desc">虚构补货调节回路：现货反向影响缺口，缺口同向影响下单，下单延迟三天带来到货，到货增加现货。周一至周三下单前现货均为60本，在途分别为0、40、80本。</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#344b48" stroke-width="2"/></marker><marker id="orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#b95124" stroke-width="2"/></marker></defs>
+  <rect width="1200" height="800" fill="#f6f2e8"/>
+  <g font-family="Microsoft YaHei, sans-serif" fill="#273c39">
+    <text x="65" y="65" font-size="35" font-weight="700">货还在路上，缺口已经被补过</text>
+    <text x="65" y="105" font-size="22">虚构案例 · 目标 100 本 · 暂停营业，无销售</text>
+    <g stroke="#344b48" stroke-width="3" fill="none" marker-end="url(#arrow)">
+      <path d="M365 218 Q570 205 785 218"/>
+      <path d="M930 270 Q938 320 930 365"/>
+      <path d="M220 365 Q208 319 220 270"/>
+    </g>
+    <path d="M785 417 Q580 435 365 417" stroke="#b95124" stroke-width="4" stroke-dasharray="11 8" fill="none" marker-end="url(#orange)"/>
+    <path d="M72 159 L365 151 L359 272 L80 278 Z" fill="#f5dc82" stroke="#a3945e" stroke-width="2"/>
+    <path d="M790 151 L1091 160 L1084 279 L785 270 Z" fill="#f5dc82" stroke="#a3945e" stroke-width="2"/>
+    <path d="M785 368 L1087 359 L1095 479 L791 485 Z" fill="#cce2d7" stroke="#739c8a" stroke-width="2"/>
+    <path d="M78 358 L365 368 L359 485 L72 477 Z" fill="#cce2d7" stroke="#739c8a" stroke-width="2"/>
+    <g text-anchor="middle" font-size="31" font-weight="700">
+      <text x="220" y="213">现货</text><text x="935" y="212">缺口</text>
+      <text x="935" y="414">本次下单</text><text x="220" y="414">到货</text>
+    </g>
+    <g text-anchor="middle" font-size="21">
+      <text x="220" y="248">已经在货架上</text><text x="935" y="247">目标 − 现货</text>
+      <text x="935" y="450">缺多少，订多少</text><text x="220" y="450">签收后才加进现货</text>
+      <text x="575" y="190">− 现货越多，缺口越小</text>
+      <text x="1000" y="329">＋</text><text x="150" y="329">＋</text>
+      <text x="575" y="395" fill="#a1431d">＋ 配送延迟 3 天</text>
+      <text x="575" y="473">调节回路：纠偏会回来，但不会立刻回来</text>
+    </g>
+    <text x="65" y="551" font-size="24" font-weight="700">只看现货，会漏掉已经发出的订单</text>
+    <g stroke="#b6ab92" stroke-width="2" fill="#fffbed">
+      <path d="M65 584 L399 578 L393 727 L70 732 Z"/>
+      <path d="M431 578 L762 585 L768 732 L437 726 Z"/>
+      <path d="M800 584 L1133 578 L1129 727 L805 732 Z"/>
+    </g>
+    <g font-size="25" text-anchor="middle">
+      <text x="232" y="621" font-weight="700">周一 · 下单前</text><text x="232" y="663">现货 60 本 / 在途 0 本</text><text x="232" y="702" fill="#a1431d">又订 40 本</text>
+      <text x="600" y="621" font-weight="700">周二 · 下单前</text><text x="600" y="663">现货 60 本 / 在途 40 本</text><text x="600" y="702" fill="#a1431d">又订 40 本</text>
+      <text x="966" y="621" font-weight="700">周三 · 下单前</text><text x="966" y="663">现货 60 本 / 在途 80 本</text><text x="966" y="702" fill="#a1431d">又订 40 本</text>
+    </g>
+    <text x="65" y="775" font-size="20">＋ 同向影响　− 反向影响　虚线：行动延迟；箭头表示本例假设下的影响关系。</text>
+  </g>
+</svg>
