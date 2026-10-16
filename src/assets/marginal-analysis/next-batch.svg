@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+<title id="title">下一炉，增加的是多少？</title><desc id="desc">虚构面包店案例。四炉各自新增收入200、160、120、60元，成本均100元，净增量100、60、20、负40元。</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#234c71" stroke-width="1"/></pattern></defs>
+<rect width="1200" height="780" fill="#102e4b"/><rect width="1200" height="780" fill="url(#grid)"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#edf8ff">
+<text x="70" y="80" font-size="38" font-weight="bold">下一炉，增加的是多少？</text>
+<text x="70" y="126" font-size="23" fill="#b5d5ec">虚构案例 · 每炉 20 个 · 售价 10 元/个</text>
+<text x="66" y="183" font-size="22">金额（元 / 次追加）</text>
+<g fill="none" stroke="#759db9" stroke-width="1"><path d="M150 220H1110M150 310H1110M150 400H1110M150 490H1110" opacity=".4"/><path d="M150 205V580H1110" stroke-width="2"/></g>
+<g font-size="22" text-anchor="end" fill="#b5d5ec"><text x="132" y="228">200</text><text x="132" y="318">150</text><text x="132" y="408">100</text><text x="132" y="498">50</text><text x="132" y="588">0</text></g>
+<g fill="#255d7d" stroke="#a3e4ff" stroke-width="3"><rect x="230" y="220" width="130" height="360"/><rect x="460" y="292" width="130" height="288"/><rect x="690" y="364" width="130" height="216"/></g>
+<rect x="920" y="472" width="130" height="108" fill="#664a42" stroke="#ffb495" stroke-width="3"/>
+<path d="M150 400H1110" stroke="#ffdb89" stroke-width="3" stroke-dasharray="12 8"/>
+<g font-size="25" text-anchor="middle"><text x="295" y="205">200</text><text x="525" y="277">160</text><text x="755" y="349">120</text><text x="985" y="457">60</text></g>
+<text x="1095" y="385" font-size="22" text-anchor="end" fill="#ffdb89">每炉成本 100 元</text>
+<g font-size="25" text-anchor="middle"><text x="295" y="625">第 1 炉</text><text x="525" y="625">第 2 炉</text><text x="755" y="625">第 3 炉</text><text x="985" y="625">第 4 炉</text></g>
+<g font-size="27" font-weight="bold" text-anchor="middle" fill="#a3e4ff"><text x="295" y="670">＋100 元</text><text x="525" y="670">＋60 元</text><text x="755" y="670">＋20 元</text><text x="985" y="670" fill="#ffb495">−40 元</text></g>
+<text x="70" y="733" font-size="22" fill="#b5d5ec">柱：本次新增收入　　虚线：本次新增成本　　下方：两者之差</text>
+</g></svg>
+
