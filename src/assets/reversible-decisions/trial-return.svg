@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" role="img" aria-labelledby="title desc">
+  <title id="title">停止预约以后，还有一段回程</title>
+  <desc id="desc">四格粉彩分镜展示试行晚间自提、停止新预约、完成已确认订单、恢复六点关门的顺序。已经花掉的时间费用和顾客印象仍然保留，箭头不代表耗时比例。</desc>
+  <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#555c70" stroke-width="1.5"/></marker></defs>
+  <rect width="1200" height="740" fill="#fffaf4"/>
+  <g font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#303747">
+    <text x="60" y="76" font-size="36" font-weight="700">停止预约以后，还有一段回程</text>
+    <text x="60" y="120" font-size="22" fill="#626979">文具店晚间自提 · 虚构案例 · 按操作顺序阅读</text>
+    <g stroke="#555c70" stroke-width="2">
+      <rect x="50" y="165" width="250" height="300" rx="24" fill="#dceaf4"/>
+      <rect x="335" y="165" width="250" height="300" rx="24" fill="#fae9bc"/>
+      <rect x="620" y="165" width="250" height="300" rx="24" fill="#fae9bc"/>
+      <rect x="905" y="165" width="250" height="300" rx="24" fill="#dcebdd"/>
+      <path d="M306 315 H328" fill="none" marker-end="url(#arrow)"/>
+      <path d="M591 315 H613" fill="none" marker-end="url(#arrow)"/>
+      <path d="M876 315 H898" fill="none" marker-end="url(#arrow)"/>
+    </g>
+    <g font-size="23" font-weight="700" text-anchor="middle">
+      <text x="175" y="214">01 试行</text><text x="460" y="214">02 停止新增</text><text x="745" y="214">03 处理已有</text><text x="1030" y="214">04 恢复安排</text>
+    </g>
+    <g stroke="#555c70" stroke-width="3" fill="#fffaf4">
+      <rect x="125" y="245" width="100" height="92" rx="7"/>
+      <path d="M125 268 H225 M148 237 V253 M202 237 V253" fill="none"/>
+      <rect x="410" y="248" width="100" height="85" rx="12"/>
+      <path d="M439 275 L481 309 M481 275 L439 309" fill="none"/>
+      <rect x="700" y="243" width="90" height="98" rx="6"/>
+      <path d="M718 280 L730 292 L752 265 M719 317 H772" fill="none"/>
+      <circle cx="1030" cy="292" r="48"/>
+      <path d="M1030 256 V292 L1030 317" fill="none"/>
+    </g>
+    <text x="175" y="312" text-anchor="middle" font-size="30" font-weight="700">10 晚</text>
+    <g font-size="23" text-anchor="middle">
+      <text x="175" y="385">18:00—20:00</text><text x="175" y="423">只用现有柜台</text>
+      <text x="460" y="385">关闭新预约</text><text x="460" y="423">更新页面与告示</text>
+      <text x="745" y="385">履行已确认订单</text><text x="745" y="423">结算、通知与交接</text>
+      <text x="1030" y="385">恢复 18:00 关门</text><text x="1030" y="423">白天营业正常</text>
+    </g>
+    <rect x="50" y="510" width="1105" height="160" rx="22" fill="#f2dfe5"/>
+    <text x="80" y="553" font-size="25" font-weight="700">仍然留下：花掉的时间与费用、顾客已经形成的印象</text>
+    <text x="80" y="598" font-size="23">能恢复营业安排，不代表一切回到试行前。</text>
+    <text x="80" y="640" font-size="21" fill="#626979">箭头仅表示顺序；分镜宽度与间距不表示耗时或成本。</text>
+    <text x="60" y="709" font-size="19" fill="#626979">作者示意 · 粉彩分镜 · 非实测数据</text>
+  </g>
+</svg>
