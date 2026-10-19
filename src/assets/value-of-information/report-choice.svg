@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">报告怎样改变场地选择？</title>
+  <desc id="desc">不买报告选大场地，期望1000元。买报告后，50%看高选大场地，条件期望2200元；50%看低选小场地，条件期望680元。合计1440元，扣报告费300元为1140元，比基准多140元。虚构演示，积木大小不代表金额。</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L8 5 1 9" fill="none" stroke="#34465a" stroke-width="2"/></marker></defs>
+  <rect width="1200" height="800" rx="24" fill="#f4f0e8"/>
+  <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#24354a">
+    <text x="55" y="70" font-size="38" font-weight="700">报告怎样改变场地选择？</text>
+    <text x="55" y="113" font-size="23">虚构演示 · 购买报告之前比较 · 金额单位：元</text>
+    <rect x="55" y="147" width="1090" height="80" rx="15" fill="#e0e4e5"/>
+    <text x="85" y="198" font-size="28">不买报告：选大场地</text>
+    <text x="765" y="198" font-size="28" font-weight="700">基准期望 1000</text>
+    <path d="M70 351l30-25h190l-30 25z" fill="#c3c7d0"/>
+    <path d="M260 351l30-25v170l-30 25z" fill="#939eaf"/>
+    <rect x="70" y="351" width="190" height="170" fill="#e0e4ed" stroke="#8c99ab"/>
+    <text x="95" y="413" font-size="28" font-weight="700">买报告</text>
+    <text x="95" y="458" font-size="24">收到哪种结果？</text>
+    <g fill="none" stroke="#34465a" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M300 414H345V304H425"/>
+      <path d="M300 455H345V515H425"/>
+      <path d="M830 365H875V405H927"/>
+      <path d="M830 535H875V452H927"/>
+    </g>
+    <path d="M445 298l30-25h325l-30 25z" fill="#9bcfe0"/>
+    <path d="M770 298l30-25v141l-30 25z" fill="#4f95af"/>
+    <rect x="445" y="298" width="325" height="141" fill="#d3eaf2" stroke="#70a7bc"/>
+    <text x="465" y="336" font-size="25" font-weight="700">看高 · 概率 50%</text>
+    <text x="465" y="377" font-size="25">选大场地</text>
+    <text x="465" y="416" font-size="24">条件期望 2200</text>
+    <path d="M445 501l30-25h325l-30 25z" fill="#edc19b"/>
+    <path d="M770 501l30-25v141l-30 25z" fill="#bd855e"/>
+    <rect x="445" y="501" width="325" height="141" fill="#f4ddc7" stroke="#c59b78"/>
+    <text x="465" y="539" font-size="25" font-weight="700">看低 · 概率 50%</text>
+    <text x="465" y="580" font-size="25">选小场地</text>
+    <text x="465" y="619" font-size="24">条件期望 680</text>
+    <rect x="940" y="349" width="205" height="161" rx="12" fill="#fffdf8" stroke="#9ca89d" stroke-width="2"/>
+    <text x="963" y="390" font-size="24">加权期望</text>
+    <text x="963" y="439" font-size="38" font-weight="700">1440</text>
+    <text x="963" y="481" font-size="22">尚未扣报告费</text>
+    <rect x="55" y="683" width="1090" height="65" rx="12" fill="#d9e4d4"/>
+    <text x="85" y="725" font-size="27" font-weight="700">1440 − 300 报告费 = 1140　｜　比基准 1000 多 140</text>
+    <text x="55" y="780" font-size="21">箭头表示分支选择；积木大小不编码金额；期望值不是单次承诺。</text>
+  </g>
+</svg>
