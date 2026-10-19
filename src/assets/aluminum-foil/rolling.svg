@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">铝箔从厚卷材到双层薄箔的轧制示意</title>
+  <desc id="desc">木刻版画风格的三幅图，依次为较厚铝卷进入轧机、两片薄铝箔叠在一起通过精轧辊、分开后的亮面和哑面铝箔卷。</desc>
+  <defs><pattern id="grain" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M0 8L9 0M-3 3L3-3M6 12l6-6" stroke="#d9cda7" stroke-width="1" opacity=".55"/></pattern><style>.ink{stroke:#24333b;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#24333b;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}.label{font:600 25px sans-serif;fill:#24333b}.small{font:20px sans-serif;fill:#24333b}</style></defs>
+  <rect width="1200" height="675" fill="#f7f1df"/><rect x="26" y="24" width="1148" height="627" rx="22" fill="url(#grain)" stroke="#24333b" stroke-width="5"/>
+  <path d="M400 66v542M800 66v542" class="thin" stroke-dasharray="7 12" opacity=".55"/>
+  <text x="75" y="96" class="label">① 宽而厚的卷材</text><text x="450" y="96" class="label">② 双层一起精轧</text><text x="850" y="96" class="label">③ 分开并分切</text>
+  <circle cx="155" cy="344" r="106" fill="#b9c7c8" class="ink"/><circle cx="155" cy="344" r="42" fill="#f7f1df" class="ink"/><path d="M260 302h84c31 0 31 84 0 84h-84" fill="#b9c7c8" class="ink"/><path d="M270 319h76M270 342h76M270 365h76" class="thin" opacity=".6"/>
+  <path d="M116 238c38 36 60 85 60 143" class="thin"/><path d="M114 237l32 4-13 28" fill="#24333b"/><text x="62" y="497" class="small">卷材绕在芯轴上</text><path d="M285 420h92" class="thin"/><path d="M365 409l19 11-19 11" fill="#24333b"/>
+  <rect x="510" y="168" width="102" height="285" rx="49" fill="#99adb1" class="ink"/><rect x="670" y="168" width="102" height="285" rx="49" fill="#99adb1" class="ink"/><circle cx="561" cy="310" r="19" fill="#f7f1df" class="thin"/><circle cx="721" cy="310" r="19" fill="#f7f1df" class="thin"/>
+  <path d="M420 298h100M420 322h100" stroke="#607d85" stroke-width="12"/><path d="M764 305h152M764 319h152" stroke="#d7c15a" stroke-width="6"/><path d="M764 321h152M764 335h152" stroke="#8d9aa0" stroke-width="6"/><text x="485" y="495" class="small">受压后变薄、变长</text><path d="M480 521h250" class="thin"/><path d="M719 510l21 11-21 11" fill="#24333b"/>
+  <path d="M879 221v111h136" class="thin"/><text x="856" y="192" class="small">两层贴合通过</text><circle cx="1018" cy="356" r="88" fill="#d7c15a" class="ink"/><circle cx="1018" cy="356" r="30" fill="#f7f1df" class="ink"/><circle cx="1082" cy="447" r="57" fill="#8d9aa0" class="ink"/><circle cx="1082" cy="447" r="19" fill="#f7f1df" class="ink"/><path d="M927 342h-57M1047 424h-63" class="thin"/><text x="865" y="547" class="small">亮面与哑面来自接触关系</text><text x="865" y="579" class="small">不是两种不同的铝</text>
+  <path d="M45 615h1110" class="thin" opacity=".5"/><text x="75" y="632" class="small">示意图：省略轧制油、张力控制、退火炉和真实尺寸；箭头表示材料前进方向。</text>
+</svg>

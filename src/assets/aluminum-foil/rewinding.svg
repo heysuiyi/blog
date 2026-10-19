@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">铝箔分切、复卷和家庭使用示意</title>
+  <desc id="desc">木刻版画风格的流程图，显示宽幅母卷被圆刀分切为窄带、复卷进纸盒，再被拉出覆盖烤盘边缘。</desc>
+  <defs><pattern id="grain" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 10L10 0M-2 3L3-2M7 13l6-6" stroke="#d9cda7" stroke-width="1" opacity=".55"/></pattern><style>.ink{stroke:#24333b;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#24333b;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}.label{font:600 26px sans-serif;fill:#24333b}.small{font:20px sans-serif;fill:#24333b}</style></defs>
+  <rect width="1200" height="675" fill="#f7f1df"/><rect x="26" y="24" width="1148" height="627" rx="22" fill="url(#grain)" stroke="#24333b" stroke-width="5"/>
+  <text x="76" y="96" class="label">宽幅母卷</text><text x="430" y="96" class="label">分切与复卷</text><text x="852" y="96" class="label">抽取、覆盖</text>
+  <circle cx="194" cy="334" r="113" fill="#a9b9b9" class="ink"/><circle cx="194" cy="334" r="42" fill="#f7f1df" class="ink"/><path d="M307 299h133v70H307" fill="#b9c7c8" class="ink"/><path d="M315 314h114M315 334h114M315 354h114" class="thin" opacity=".55"/><text x="94" y="505" class="small">大片箔材仍在卷上</text>
+  <path d="M421 323h65" class="thin"/><path d="M474 312l19 11-19 11" fill="#24333b"/>
+  <rect x="502" y="221" width="205" height="219" rx="12" fill="#e6d59a" class="ink"/><path d="M532 245v170M570 245v170M608 245v170M646 245v170M684 245v170" class="thin"/><circle cx="541" cy="188" r="27" fill="#d66a4a" class="ink"/><circle cx="581" cy="188" r="27" fill="#d66a4a" class="ink"/><circle cx="621" cy="188" r="27" fill="#d66a4a" class="ink"/><circle cx="661" cy="188" r="27" fill="#d66a4a" class="ink"/><text x="477" y="503" class="small">圆刀沿长度把宽幅分成窄带</text>
+  <path d="M726 323h63" class="thin"/><path d="M777 312l19 11-19 11" fill="#24333b"/>
+  <rect x="806" y="220" width="273" height="240" rx="14" fill="#d66a4a" class="ink"/><path d="M829 274h226v-28H829z" fill="#f7f1df" class="ink"/><circle cx="921" cy="342" r="67" fill="#b9c7c8" class="ink"/><circle cx="921" cy="342" r="24" fill="#f7f1df" class="ink"/><path d="M988 335h146" stroke="#b9c7c8" stroke-width="18"/><path d="M998 326h136M998 344h136" class="thin" opacity=".55"/><path d="M1085 345c46 31 52 97 2 125" class="thin"/><path d="M1089 460l-9 25 27-4" fill="#24333b"/>
+  <path d="M874 523h176l-26 71H900z" fill="#607d85" class="ink"/><path d="M900 523l23-34h90l37 34" fill="#b9c7c8" class="ink"/><text x="842" y="620" class="small">薄箔贴着容器边缘压折后能保持形状</text>
+  <text x="67" y="632" class="small">示意图：纸盒刀口、卷芯、分切刀和烤盘均作简化；不表示统一的卷长、宽度或箔厚。</text>
+</svg>
