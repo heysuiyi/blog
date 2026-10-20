@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">礼盒流程：改善装配之后，限制移到检查</title>
+  <desc id="desc">三行分别展示原流程60、40、50，备料改善后60、45、50，加装配设备后60、70、50。需求55盒每小时，交付上限分别为40、45、50。橙色标出限制工序。</desc>
+  <defs>
+    <pattern id="paper" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="3" cy="5" r="0.8" fill="#d3c6ad" opacity=".4"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#364e48" stroke-width="2"/></marker>
+  </defs>
+  <rect width="1200" height="780" fill="#f5efdf"/>
+  <rect width="1200" height="780" fill="url(#paper)"/>
+  <g font-family="Microsoft YaHei, sans-serif" fill="#233d37">
+    <text x="55" y="65" font-size="34" font-weight="700">装配变快之后，谁在限制交付？</text>
+    <text x="55" y="108" font-size="23">虚构案例 · 同款串行流程 · 需求 55 盒／小时</text>
+    <g font-size="24" font-weight="700">
+      <text x="282" y="166">裁切</text><text x="522" y="166">装配</text><text x="752" y="166">检查打包</text><text x="995" y="166">交付上限</text>
+    </g>
+    <g fill="#d8cdb8">
+      <path d="M240 205L420 201L425 306L237 311Z"/><path d="M480 201L661 206L657 311L477 306Z"/><path d="M720 206L901 202L906 309L717 312Z"/>
+      <path d="M240 365L420 361L425 466L237 471Z"/><path d="M480 361L661 366L657 471L477 466Z"/><path d="M720 366L901 362L906 469L717 472Z"/>
+      <path d="M240 525L420 521L425 626L237 631Z"/><path d="M480 521L661 526L657 631L477 626Z"/><path d="M720 526L901 522L906 629L717 632Z"/>
+    </g>
+    <g fill="#c8dacf" stroke="#364e48" stroke-width="2">
+      <path d="M230 195L410 191L415 296L227 301Z"/><path d="M710 196L891 192L896 299L707 302Z"/>
+      <path d="M230 355L410 351L415 456L227 461Z"/><path d="M710 356L891 352L896 459L707 462Z"/>
+      <path d="M230 515L410 511L415 616L227 621Z"/><path d="M470 511L651 516L647 621L467 616Z"/>
+    </g>
+    <g fill="#edab79" stroke="#8e492b" stroke-width="2">
+      <path d="M470 191L651 196L647 301L467 296Z"/><path d="M470 351L651 356L647 461L467 456Z"/><path d="M710 516L891 512L896 619L707 622Z"/>
+    </g>
+    <g fill="none" stroke="#364e48" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M423 245H457"/><path d="M663 245H697"/><path d="M907 245H974"/>
+      <path d="M423 405H457"/><path d="M663 405H697"/><path d="M907 405H974"/>
+      <path d="M423 565H457"/><path d="M663 565H697"/><path d="M907 565H974"/>
+    </g>
+    <g font-size="25">
+      <text x="55" y="247">原流程</text>
+      <text x="55" y="398">提前备料</text><text x="55" y="432" font-size="20">用好现有装配</text>
+      <text x="55" y="558">加装配设备</text><text x="55" y="592" font-size="20">检查成为限制</text>
+    </g>
+    <g font-size="43" font-weight="700" text-anchor="middle">
+      <text x="320" y="251">60</text><text x="560" y="251">40</text><text x="800" y="251">50</text><text x="1052" y="259">40</text>
+      <text x="320" y="411">60</text><text x="560" y="411">45</text><text x="800" y="411">50</text><text x="1052" y="419">45</text>
+      <text x="320" y="571">60</text><text x="560" y="571">70</text><text x="800" y="571">50</text><text x="1052" y="579">50</text>
+    </g>
+    <g font-size="18" text-anchor="middle">
+      <text x="320" y="280">套／小时</text><text x="560" y="280">盒／小时</text><text x="800" y="280">盒／小时</text><text x="1052" y="290">盒／小时</text>
+      <text x="320" y="440">套／小时</text><text x="560" y="440">盒／小时</text><text x="800" y="440">盒／小时</text><text x="1052" y="450">盒／小时</text>
+      <text x="320" y="600">套／小时</text><text x="560" y="600">盒／小时</text><text x="800" y="600">盒／小时</text><text x="1052" y="610">盒／小时</text>
+    </g>
+    <path d="M55 672L1140 667L1137 749L59 752Z" fill="#fffaf0" stroke="#b7ac96"/>
+    <text x="78" y="704" font-size="22">橙色 = 当行限制工序　　箭头 = 物料流向　　纸片大小不编码数量</text>
+    <text x="78" y="737" font-size="21">稳定衔接下的速度上限；省略开工、收尾与波动，实际交付仍需验证。</text>
+  </g>
+</svg>
