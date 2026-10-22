@@ -1,0 +1,6 @@
+---
+import { getCollection } from 'astro:content';
+import ArchivePage from '../../components/ArchivePage.astro';
+const allPosts = await getCollection('blog');
+---
+<ArchivePage allPosts={allPosts} kind="category" directory />

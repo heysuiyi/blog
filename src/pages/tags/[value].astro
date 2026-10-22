@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import ArchivePage from '../../components/ArchivePage.astro';
+import { taxonomyEntries } from '../../lib/taxonomy';
+export async function getStaticPaths() {
+ const allPosts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+ return taxonomyEntries(allPosts, 'tag').map(({ name }) => ({ params: { value: name }, props: { allPosts, value: name } }));
+}
+const { allPosts, value } = Astro.props;
+---
+<ArchivePage allPosts={allPosts} kind="tag" value={value} />

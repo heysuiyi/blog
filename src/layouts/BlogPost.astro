@@ -1,4 +1,5 @@
 ---
+import { taxonomyUrl } from '../lib/taxonomy';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
@@ -8,7 +9,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, category = '随笔' } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category, tags = [] } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,7 +29,7 @@ const { title, description, pubDate, updatedDate, heroImage, category = '随笔'
 				<!-- Hero Header Section -->
 				<header class="article-hero">
 					<div class="article-meta">
-						<span class="category-badge">{category}</span>
+						{category && <a class="category-badge" href={taxonomyUrl('category', category)}>{category}</a>}
 						<span class="meta-date">
 							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
@@ -60,6 +61,7 @@ const { title, description, pubDate, updatedDate, heroImage, category = '随笔'
 					<slot />
 				</div>
 
+				<nav class="post-tags" aria-label="文章标签">{tags.map(tag => <a href={taxonomyUrl('tag', tag)}>#{tag}</a>)}</nav>
 				<!-- Post Navigation Footer -->
 				<div class="post-bottom-nav">
 					<a href="/blog" class="back-link">

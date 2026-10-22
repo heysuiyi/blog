@@ -15,6 +15,9 @@ import HeaderLink from './HeaderLink.astro';
 		<div class="nav-links">
 			<HeaderLink href="/">首页</HeaderLink>
 			<HeaderLink href="/blog">博客</HeaderLink>
+			<HeaderLink href="/categories">分类</HeaderLink>
+			<HeaderLink href="/tags">标签</HeaderLink>
+			<HeaderLink href="/search">搜索</HeaderLink>
 			<HeaderLink href="/about">关于</HeaderLink>
 		</div>
 
@@ -102,12 +105,12 @@ import HeaderLink from './HeaderLink.astro';
 
 	.nav-links :global(a:hover) {
 		color: var(--primary);
-		background: rgba(37, 99, 235, 0.08);
+		background: rgba(71, 109, 123, 0.08);
 	}
 
 	.nav-links :global(a.active) {
 		color: var(--primary);
-		background: rgba(37, 99, 235, 0.12);
+		background: rgba(71, 109, 123, 0.12);
 		font-weight: 700;
 	}
 
@@ -132,17 +135,23 @@ import HeaderLink from './HeaderLink.astro';
 
 	.action-btn:hover {
 		color: var(--primary);
-		background: rgba(37, 99, 235, 0.1);
-		border-color: rgba(37, 99, 235, 0.3);
+		background: rgba(71, 109, 123, 0.1);
+		border-color: rgba(71, 109, 123, 0.3);
 		transform: translateY(-2px);
 	}
 
 	@media (max-width: 640px) {
 		.nav-container {
 			padding: 0.75rem 1.25rem;
+			flex-wrap: wrap;
+			gap: 0.65rem;
 		}
 		.nav-links {
-			gap: 0.5rem;
+			gap: 0.15rem;
+			width: 100%;
+			order: 3;
+			justify-content: space-between;
 		}
+		.nav-links :global(a) { padding: 0.35rem 0.45rem; font-size: 0.88rem; }
 	}
 </style>

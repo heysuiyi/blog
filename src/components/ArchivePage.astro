@@ -1,0 +1,281 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { taxonomyEntries, taxonomyUrl } from '../lib/taxonomy';
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import FormattedDate from './FormattedDate.astro';
+import Header from './Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+interface Props {
+	allPosts: CollectionEntry<'blog'>[];
+	kind?: 'category' | 'tag';
+	value?: string;
+	directory?: boolean;
+	search?: boolean;
+}
+const { allPosts, kind, value, directory = false, search = false } = Astro.props;
+const posts = directory ? [] : value && kind
+	? allPosts.filter(p => kind === 'category' ? p.data.category === value : p.data.tags.includes(value))
+	: allPosts;
+const categories = taxonomyEntries(allPosts, 'category');
+const tags = taxonomyEntries(allPosts, 'tag');
+const title = search ? '搜索文章' : directory ? (kind === 'category' ? '文章分类' : '文章标签') : value ? (kind === 'category' ? '分类 · ' : '标签 · ') + value : '全部文章与专栏';
+const entries = kind === 'tag' ? tags : categories;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={`${title} - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+
+		<main class="blog-archive-container">
+			<section class="archive-header">
+				<span class="archive-eyebrow">✦ DIGITAL GARDEN ARCHIVE</span>
+				<h1 class="archive-title">{title}</h1>
+				<p class="archive-subtitle">
+					{directory ? `共 ${entries.length} 个${kind === 'category' ? '分类' : '标签'}，收录 ${allPosts.length} 篇文章。` : `共收录 ${posts.length} 篇文字与思考，随时间沉淀生息。`}
+				</p>
+
+				<nav class="category-filters" aria-label="文章分类">
+					<a href="/blog/" class:list={['filter-tag', { active: !kind && !search }]}>全部 ({allPosts.length})</a>
+					{categories.map(({ name, count }) => <a href={taxonomyUrl('category', name)} class:list={['filter-tag', { active: kind === 'category' && value === name }]} aria-current={kind === 'category' && value === name ? 'page' : undefined}>{name} ({count})</a>)}
+					<a href="/tags/" class:list={['filter-tag', { active: kind === 'tag' }]}>标签 ({tags.length})</a>
+					<a href="/search/" class:list={['filter-tag', { active: search }]}>搜索</a>
+					</nav>
+					{directory && <nav class="taxonomy-directory" aria-label={title}>{entries.map(({ name, count }) => <a class="filter-tag" href={taxonomyUrl(kind!, name)}>{name} <span>{count}</span></a>)}</nav>}
+					{search && <form class="search-form" action="/search/" role="search">
+					<label for="article-search">搜索标题、摘要、分类、标签与正文</label>
+					<div class="search-controls"><input id="article-search" name="q" type="search" placeholder="输入关键词，例如：材料、概率、铅笔" autocomplete="off" /><button type="submit">搜索</button></div>
+					<p id="search-status" role="status" aria-live="polite">输入关键词，开始探索文章。</p>
+					<noscript>请启用 JavaScript 使用全文搜索，也可以通过上方分类与标签浏览文章。</noscript>
+					</form>}
+			</section>
+
+			<section class="archive-grid" aria-label="文章列表" hidden={directory || search}>
+				{posts.map((post) => {
+					const category = post.data.category || '随笔';
+					return (
+						<article class="grid-card" data-search={search ? [post.data.title, post.data.description, category, ...post.data.tags, post.body || ''].join(' ').normalize('NFKC').toLocaleLowerCase() : undefined}>
+							<a href={`/blog/${post.id}/`} class="card-thumb-link">
+								<div class="card-thumb">
+									{post.data.heroImage ? (
+										<Image width={720} height={360} src={post.data.heroImage} alt="" class="thumb-img" />
+									) : (
+										<div class="thumb-placeholder">
+											<span>✦</span>
+										</div>
+									)}
+
+								</div>
+							</a>
+
+							<div class="card-info"><a class="archive-category" href={taxonomyUrl('category', category)}>{category}</a>
+								<div class="card-meta">
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+										<line x1="16" x2="16" y1="2" y2="6"/>
+										<line x1="8" x2="8" y1="2" y2="6"/>
+										<line x1="3" x2="21" y1="10" y2="10"/>
+									</svg>
+									<FormattedDate date={post.data.pubDate} />
+								</div>
+
+								<h2 class="card-heading">
+									<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+								</h2>
+
+								<p class="card-summary">{post.data.description}</p><div class="post-tags">{post.data.tags.map(tag => <a href={taxonomyUrl('tag', tag)}>#{tag}</a>)}</div>
+							</div>
+						</article>
+					);
+				})}
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.blog-archive-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 5rem;
+		width: 100%;
+	}
+
+	.archive-header {
+		text-align: center;
+		margin-bottom: 3.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.archive-eyebrow {
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		color: var(--primary);
+		margin-bottom: 0.5rem;
+	}
+
+	.archive-title {
+		font-size: clamp(2rem, 4vw, 2.75rem);
+		font-weight: 800;
+		margin: 0 0 0.8rem 0;
+	}
+
+	.archive-subtitle {
+		font-size: 1.05rem;
+		color: var(--text-muted);
+		margin: 0 0 2rem 0;
+	}
+
+	.category-filters {
+		display: flex;
+		gap: 0.6rem;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.filter-tag {
+		padding: 0.4rem 1rem;
+		border-radius: var(--radius-full);
+		font-size: 0.85rem;
+		font-weight: 600;
+		background: rgba(255, 255, 255, 0.7);
+		border: 1px solid var(--card-border-subtle);
+		color: var(--text-muted);
+		backdrop-filter: var(--glass-blur);
+		cursor: pointer;
+		transition: var(--transition-smooth);
+	}
+
+	.filter-tag:hover {
+		border-color: var(--primary);
+		color: var(--primary);
+	}
+
+	.filter-tag.active {
+		background: var(--primary-gradient);
+		color: white;
+		border-color: transparent;
+		box-shadow: 0 4px 12px rgba(71, 109, 123, 0.35);
+	}
+
+	.archive-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+		gap: 2rem;
+	}
+
+	.grid-card {
+		background: var(--card-bg);
+		border: 1px solid var(--card-border);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-card);
+		overflow: hidden;
+		backdrop-filter: var(--glass-blur);
+		transition: var(--transition-smooth);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.grid-card:hover {
+		transform: translateY(-5px);
+		box-shadow: var(--shadow-hover);
+		border-color: rgba(71, 109, 123, 0.35);
+	}
+
+	.card-thumb-link {
+		display: block;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.card-thumb {
+		position: relative;
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.thumb-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+	}
+
+	.grid-card:hover .thumb-img {
+		transform: scale(1.06);
+	}
+
+	.thumb-placeholder {
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, rgba(71, 109, 123, 0.15) 0%, rgba(71, 109, 123, 0.15) 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-muted);
+		font-weight: 700;
+	}
+
+
+
+	.card-info {
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+	}
+
+	.card-meta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 0.82rem;
+		color: var(--text-light);
+		margin-bottom: 0.6rem;
+	}
+
+	.card-heading {
+		font-size: 1.25rem;
+		margin: 0 0 0.6rem 0;
+		line-height: 1.4;
+	}
+
+	.card-heading a {
+		color: var(--text-main);
+	}
+
+	.grid-card:hover .card-heading a {
+		color: var(--primary);
+	}
+
+	.card-summary {
+		color: var(--text-muted);
+		font-size: 0.92rem;
+		line-height: 1.6;
+		margin: 0;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	@media (max-width: 640px) {
+		.archive-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<script src="../scripts/search.ts"></script>

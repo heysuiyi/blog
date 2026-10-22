@@ -1,4 +1,5 @@
 ---
+import { taxonomyUrl } from '../lib/taxonomy';
 import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
 import type { CollectionEntry } from 'astro:content';
@@ -23,12 +24,12 @@ const category = post.data.category || '随笔';
 					<span class="placeholder-icon">✦</span>
 				</div>
 			)}
-			<span class="category-tag">{category}</span>
+
 		</div>
 	</a>
 
 	<div class="card-body">
-		<div class="meta-row">
+		<div class="meta-row"><a href={taxonomyUrl('category', category)}>{category}</a>
 			<span class="meta-item date">
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
@@ -74,7 +75,7 @@ const category = post.data.category || '随笔';
 	.article-card:hover {
 		transform: translateY(-4px);
 		box-shadow: var(--shadow-hover);
-		border-color: rgba(37, 99, 235, 0.35);
+		border-color: rgba(71, 109, 123, 0.35);
 	}
 
 	.article-card.reversed {
@@ -112,7 +113,7 @@ const category = post.data.category || '随笔';
 		width: 100%;
 		height: 100%;
 		min-height: 200px;
-		background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(20, 184, 166, 0.15) 100%);
+		background: linear-gradient(135deg, rgba(71, 109, 123, 0.15) 0%, rgba(71, 109, 123, 0.15) 100%);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -122,25 +123,9 @@ const category = post.data.category || '随笔';
 		letter-spacing: 0.1em;
 	}
 
-	.category-tag {
-		position: absolute;
-		top: 1rem;
-		left: 1rem;
-		background: rgba(255, 255, 255, 0.85);
-		color: var(--primary);
-		padding: 0.25rem 0.75rem;
-		border-radius: var(--radius-full);
-		font-size: 0.75rem;
-		font-weight: 700;
-		backdrop-filter: var(--glass-blur);
-		box-shadow: var(--shadow-sm);
-		z-index: 2;
-	}
 
-	.article-card.reversed .category-tag {
-		left: auto;
-		right: 1rem;
-	}
+
+
 
 	.card-body {
 		width: 58%;
@@ -232,9 +217,6 @@ const category = post.data.category || '随笔';
 			width: 100%;
 			padding: 1.25rem 1.5rem;
 		}
-		.category-tag {
-			left: 1rem !important;
-			right: auto !important;
-		}
+
 	}
 </style>
