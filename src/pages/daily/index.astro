@@ -4,6 +4,7 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import ReadingTools from '../../components/ReadingTools.astro';
 import { SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog', ({ data }) => data.category === '日报'))
@@ -19,15 +20,16 @@ const description = '每日整理科技与设计的值得关注之处，从可�
 	</head>
 	<body>
 		<Header />
-		<main class="daily-container">
+		<main id="main-content" class="daily-container site-wrap">
 			<header class="daily-header">
-				<span class="daily-eyebrow">✦ DAILY LEARNING</span>
+				<span class="daily-eyebrow">DAILY LEARNING</span>
 				<h1>科技与设计学习日报</h1>
 				<p class="daily-description">{description}</p>
 				<ul class="daily-topics" aria-label="日报栏目">
 					{topics.map((topic) => <li>{topic}</li>)}
 				</ul>
 			</header>
+			<ReadingTools />
 			<section aria-labelledby="daily-list-title">
 				<div class="daily-list-header">
 					<h2 id="daily-list-title">往期日报</h2>
@@ -49,18 +51,16 @@ const description = '每日整理科技与设计的值得关注之处，从可�
 </html>
 
 <style>
-	.daily-container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
-	.daily-header { text-align: center; margin-bottom: 3rem; }
-	.daily-eyebrow { display: block; color: var(--primary); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; margin-bottom: 0.6rem; }
-	h1 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; }
-	.daily-description { max-width: 40rem; margin: 1rem auto 1.5rem; color: var(--text-muted); }
-	.daily-topics { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; padding: 0; margin: 0; list-style: none; }
-	.daily-topics li { padding: 0.35rem 0.9rem; border-radius: var(--radius-full); border: 1px solid var(--card-border-subtle); background: var(--card-bg); color: var(--primary); font-size: 0.85rem; }
-	.daily-list-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem; padding-bottom: 1rem; margin-bottom: 1.75rem; border-bottom: 1px solid var(--card-border-subtle); }
-	.daily-list-header h2 { margin: 0; font-size: 1.5rem; }
-	.daily-list-header span { font-size: 0.9rem; color: var(--text-muted); }
-	.daily-empty { padding: 3rem 1.5rem; text-align: center; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
-	.daily-empty p { color: var(--text-muted); margin-bottom: 0; }
-	.all-posts-link { display: block; width: fit-content; margin: 2rem auto 0; font-weight: 600; }
-	@media (max-width: 640px) { .daily-container { padding-top: 2rem; } }
+ .daily-container { padding-top: 48px; padding-bottom: 64px; }
+ .daily-header { margin-bottom: 32px; }
+ .daily-eyebrow { display: block; color: var(--teal); font-size: 11px; letter-spacing: .14em; margin-bottom: 16px; }
+ h1 { margin: 0 0 18px; }
+ .daily-description { color: var(--muted); max-width: 44rem; font-size: 14px; line-height: 2; margin: 0 0 22px; }
+ .daily-topics { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; padding: 0; margin: 0; color: var(--teal); font-size: 12px; }
+ .daily-topics li:not(:last-child)::after { content: '/'; margin-left: 18px; color: var(--line); }
+ .daily-list-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+ .daily-list-header h2 { margin: 0; font-size: 18px; } .daily-list-header span { font-size: 12px; color: var(--muted); }
+ .daily-empty { padding: 40px 24px; background: var(--soft); } .daily-empty p { color: var(--muted); }
+ .all-posts-link { display: inline-flex; margin-top: 12px; padding: 8px 0; font-size: 13px; }
+ @media(max-width:650px) { .daily-container { padding-top: 32px; padding-bottom: 42px; } .daily-topics { font-size: 11px; gap: 6px 12px; } .daily-topics li:not(:last-child)::after { margin-left: 12px; } }
 </style>

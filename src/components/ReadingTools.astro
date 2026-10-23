@@ -1,0 +1,174 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'section'>;
+const { class: className, ...attributes } = Astro.props;
+---
+
+<section
+	{...attributes}
+	class:list={['reading-tools', className]}
+	data-reading-tools
+	aria-label="阅读氛围设置"
+>
+	<div class="ambience" data-ambience data-audio-state="off" data-playing="false" data-muted="false">
+		<button
+			class="quiet-button play-button"
+			type="button"
+			data-audio-toggle
+			aria-label="开启合成雨声"
+			aria-pressed="false"
+			title="点击后在本机生成雨声，不加载音频文件"
+			disabled
+		>
+			<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+				<path class="play-symbol" d="m7 4 9 6-9 6z" />
+				<path class="pause-symbol" d="M7 4v12M13 4v12" />
+			</svg>
+			<span>雨声陪伴</span>
+		</button>
+		<input
+			class="audio-volume"
+			data-audio-volume
+			type="range"
+			min="0"
+			max="100"
+			step="1"
+			value="20"
+			aria-label="雨声音量"
+			aria-valuetext="20%"
+			disabled
+		/>
+		<button
+			class="quiet-button mute-button"
+			type="button"
+			data-audio-mute
+			aria-label="静音雨声"
+			aria-pressed="false"
+			disabled
+		>静音</button>
+		<span class="audio-state" data-audio-status role="status" aria-live="polite" aria-atomic="true">未开启</span>
+	</div>
+	<div class="theme-controls" role="group" aria-label="阅读配色">
+		<span class="theme-label" aria-hidden="true">阅读配色</span>
+		<button type="button" class="theme-option" data-theme-mode="light" aria-pressed="false" disabled>纸白</button>
+		<button type="button" class="theme-option" data-theme-mode="dark" aria-pressed="false" disabled>暮色</button>
+		<button type="button" class="theme-option" data-theme-mode="system" aria-pressed="true" disabled>随系统</button>
+	</div>
+	<noscript><p class="no-script-note">开启 JavaScript 后可切换配色和播放雨声，正文阅读不受影响。</p></noscript>
+</section>
+
+<script>
+	import '../scripts/reading-controls';
+</script>
+
+<style>
+	.reading-tools {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px 24px;
+		margin: 0 0 42px;
+		padding: 12px 0;
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+		color: var(--muted);
+		background: transparent;
+		text-align: left;
+	}
+
+	.ambience,
+	.theme-controls {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.ambience { gap: 4px 10px; }
+	.theme-controls { gap: 3px; }
+
+	.quiet-button,
+	.theme-option {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		min-width: 32px;
+		min-height: 32px;
+		margin: 0;
+		border: 0;
+		border-radius: 3px;
+		background: none;
+		color: var(--muted);
+		font: inherit;
+		font-size: 11px;
+		font-weight: 400;
+		line-height: 1.7;
+		cursor: pointer;
+		touch-action: manipulation;
+		transition: color 160ms ease, background-color 160ms ease;
+	}
+
+	.quiet-button { gap: 7px; padding: 4px 2px; }
+	.quiet-button:hover:not(:disabled),
+	.theme-option:hover:not(:disabled) { color: var(--teal); background-color: var(--soft); }
+	.quiet-button:disabled,
+	.theme-option:disabled { cursor: default; opacity: .5; }
+	.quiet-button:focus-visible,
+	.theme-option:focus-visible,
+	.audio-volume:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+	.play-button { color: var(--teal); }
+	.play-button svg { width: 15px; height: 15px; flex: none; }
+	.pause-symbol { display: none; }
+	.play-button[aria-pressed='true'] .play-symbol { display: none; }
+	.play-button[aria-pressed='true'] .pause-symbol { display: block; }
+	.mute-button { padding-inline: 4px; font-size: 10px; }
+
+	.audio-volume {
+		width: 64px;
+		min-width: 54px;
+		height: 32px;
+		margin: 0;
+		padding: 0;
+		accent-color: var(--teal);
+		cursor: pointer;
+		touch-action: pan-y;
+	}
+	.audio-volume:disabled { cursor: default; opacity: .4; }
+	.audio-state { color: var(--faint); font-size: 10px; white-space: nowrap; }
+	.theme-label { color: var(--faint); font-size: 10px; margin-right: 8px; }
+	.theme-option { padding: 4px 9px; font-size: 10px; }
+	.theme-option[aria-pressed='true'] { background-color: var(--control); color: var(--teal); }
+	.no-script-note { margin: 0; font-size: 12px; color: var(--muted); }
+	noscript { flex-basis: 100%; }
+
+	@media (max-width: 850px) {
+		.reading-tools { column-gap: 16px; }
+		.theme-label { display: none; }
+	}
+
+	@media (max-width: 650px) {
+		.reading-tools { flex-direction: column; align-items: stretch; gap: 5px; margin-bottom: 30px; padding: 10px 0; }
+		.ambience { gap: 0 8px; }
+		.theme-controls { gap: 4px; }
+		.theme-label { display: inline; margin-right: auto; font-size: 11px; }
+		.quiet-button { font-size: 12px; }
+		.mute-button, .theme-option, .audio-state { font-size: 11px; }
+		.theme-option { padding-inline: 10px; }
+		.audio-state { margin-left: auto; }
+	}
+
+	@media (pointer: coarse), (max-width: 650px) {
+		.quiet-button, .theme-option { min-width: 44px; min-height: 44px; }
+		.audio-volume { height: 44px; }
+	}
+
+	@media (max-width: 370px) {
+		.audio-state { flex-basis: 100%; margin: 0 0 5px 2px; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.quiet-button, .theme-option { transition: none; }
+	}
+</style>

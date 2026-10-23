@@ -1,17 +1,7 @@
 ---
-interface Props {
-	date: Date;
-}
-
+interface Props { date: Date; }
 const { date } = Astro.props;
+// Content dates are calendar dates in UTC, not the build machine's local time.
+const iso = date.toISOString().slice(0, 10);
 ---
-
-<time datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
-</time>
+<time datetime={iso}>{iso.replaceAll('-', '.')}</time>

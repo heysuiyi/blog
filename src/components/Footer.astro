@@ -1,116 +1,18 @@
 ---
-import { SITE_TITLE } from '../consts';
-
-const today = new Date();
+import { SITE_TITLE, GITHUB_URL } from '../consts';
 ---
-
-<footer class="poetize-footer">
-	<div class="footer-container">
-		<div class="poetic-motto">
-			<span class="motto-icon">✦</span>
-			<p class="motto-text">静水流深 · 记录那些值得留下的东西</p>
-		</div>
-
-		<div class="runtime-box">
-			<span class="garden-icon">🌱</span>
-			<span id="runtime-display">数字花园已静静耕耘...</span>
-		</div>
-
-		<div class="copyright-line">
-			&copy; {today.getFullYear()} <strong>{SITE_TITLE}</strong>. All rights reserved.
-			<span class="divider">/</span>
-			Powered by <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
-		</div>
-	</div>
+<footer class="site-footer site-wrap">
+ <div class="footer-inner">
+  <span>© {new Date().getFullYear()} {SITE_TITLE} · 写下，留下。</span>
+  <nav aria-label="更多导航">
+   <a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/search/">搜索</a>
+   <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a><a href="/rss.xml">RSS</a><a href="#top">回到顶部 ↑</a>
+  </nav>
+ </div>
 </footer>
-
-<script>
-	// Dynamic running days counter based on site launch
-	function updateRuntime() {
-		const startDate = new Date('2024-01-01T00:00:00');
-		const now = new Date();
-		const diff = now.getTime() - startDate.getTime();
-		const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-		const el = document.getElementById('runtime-display');
-		if (el) {
-			el.textContent = `数字花园已静静耕耘 ${days} 天`;
-		}
-	}
-	updateRuntime();
-</script>
-
 <style>
-	.poetize-footer {
-		margin-top: auto;
-		background: rgba(255, 255, 255, 0.7);
-		backdrop-filter: var(--glass-blur);
-		-webkit-backdrop-filter: var(--glass-blur);
-		border-top: 1px solid rgba(255, 255, 255, 0.8);
-		padding: 3rem 1.5rem 2.5rem;
-		text-align: center;
-		position: relative;
-	}
-
-	.footer-container {
-		max-width: 800px;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.85rem;
-	}
-
-	.poetic-motto {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.motto-icon {
-		font-size: 1.1rem;
-		color: var(--primary);
-	}
-
-	.motto-text {
-		font-size: 0.95rem;
-		color: var(--text-muted);
-		margin: 0;
-	}
-
-	.runtime-box {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
-		padding: 0.3rem 0.85rem;
-		background: rgba(71, 109, 123, 0.08);
-		border: 1px solid rgba(71, 109, 123, 0.2);
-		border-radius: var(--radius-full);
-		font-size: 0.82rem;
-		color: var(--primary);
-		font-weight: 500;
-	}
-
-	.copyright-line {
-		font-size: 0.85rem;
-		color: var(--text-light);
-		margin-top: 0.25rem;
-	}
-
-	.copyright-line strong {
-		color: var(--text-main);
-	}
-
-	.divider {
-		margin: 0 0.4rem;
-		color: rgba(0, 0, 0, 0.15);
-	}
-
-	.copyright-line a {
-		color: var(--primary);
-		font-weight: 600;
-	}
-
-	.copyright-line a:hover {
-		text-decoration: underline;
-	}
+ .site-footer { margin-top: auto; }
+ .footer-inner { border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0 28px; font-size: 11px; color: var(--muted); }
+ nav { display: flex; flex-wrap: wrap; gap: 4px 18px; } a { display: inline-flex; align-items: center; min-height: 32px; color: var(--muted); } a:hover { color: var(--teal); }
+ @media(max-width:650px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; } nav { gap: 4px 17px; } }
 </style>

@@ -37,30 +37,18 @@ const weekday = new Intl.DateTimeFormat('zh-CN', { weekday: 'long', timeZone: 'U
 </article>
 
 <style>
-	.daily-card { display: grid; grid-template-columns: 132px minmax(0, 1fr); margin-bottom: 1.75rem; overflow: hidden; border: 1px solid var(--card-border); border-radius: var(--radius-lg); background: var(--card-bg); box-shadow: var(--shadow-card); transition: var(--transition-smooth); }
-	.daily-card:hover { border-color: rgba(71, 109, 123, 0.3); box-shadow: var(--shadow-hover); transform: translateY(-3px); }
-	.date-panel { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 1.5rem 1rem; background: linear-gradient(160deg, hsl(197 24% 91%), hsl(197 24% 95%)); border-right: 1px solid var(--card-border); color: var(--primary); }
-	time { display: flex; flex-direction: column; align-items: center; font-variant-numeric: tabular-nums; }
-	.date-month { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; }
-	.date-day { font-size: 3rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.06em; margin: 0.2rem 0; }
-	.date-weekday { font-size: 0.78rem; }
-	.issue-label { padding: 0.15rem 0.65rem; border: 1px solid rgba(71, 109, 123, 0.18); border-radius: var(--radius-full); font-size: 0.75rem; white-space: nowrap; }
-	.daily-body { min-width: 0; padding: 1.6rem 1.8rem; }
-	.series-label { display: block; margin-bottom: 0.45rem; color: var(--primary); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; }
-	h2 { font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.4; margin: 0 0 0.6rem; }
-	h2 a { color: var(--text-main); }
-	h2 a:hover { color: var(--primary); }
-	p { margin: 0 0 1.1rem; color: var(--text-muted); font-size: 0.92rem; line-height: 1.75; }
-	.daily-read { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.8rem; border: 1px solid rgba(71, 109, 123, 0.18); border-radius: var(--radius-full); color: var(--primary); font-size: 0.84rem; font-weight: 700; }
-	.daily-read:hover { background: rgba(71, 109, 123, 0.08); border-color: var(--primary); }
-	@media (max-width: 600px) {
-		.daily-card { grid-template-columns: 1fr; }
-		.date-panel { flex-direction: row; justify-content: space-between; gap: 0.5rem; padding: 0.75rem 1.25rem; border-right: 0; border-bottom: 1px solid var(--card-border); }
-		time { flex-direction: row; flex-wrap: wrap; gap: 0.35rem; }
-		.date-month { font-size: 0.8rem; letter-spacing: 0; }
-		.date-month::after { content: ' /'; }
-		.date-day { margin: 0; font-size: 0.85rem; line-height: 1.7; letter-spacing: 0; }
-		.date-weekday { margin-left: 0.3rem; }
-		.daily-body { padding: 1.25rem; }
-	}
+ .daily-card { display: grid; grid-template-columns: 115px minmax(0,1fr); margin-bottom: 24px; border: 1px solid var(--line); background: var(--paper); }
+ .date-panel { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px 14px; background: var(--soft); color: var(--teal); }
+ time { display: flex; flex-direction: column; align-items: center; font-variant-numeric: tabular-nums; }
+ .date-month { font-size: 11px; letter-spacing: .06em; }
+ .date-day { font: 500 42px/1.3 var(--serif); margin: 2px 0; }
+ .date-weekday,.issue-label { font-size: 11px; color: var(--muted); }
+ .daily-body { min-width: 0; padding: 25px 30px; }
+ .series-label { display: block; margin-bottom: 8px; color: var(--teal); font-size: 11px; letter-spacing: .06em; }
+ h2 { font: 500 22px/1.7 var(--serif); margin: 0 0 10px; }
+ h2 a { color: var(--ink); } h2 a:hover { color: var(--teal); }
+ p { margin: 0 0 15px; color: var(--muted); font-size: 14px; line-height: 1.95; }
+ .daily-read { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: var(--teal); font-size: 12px; }
+ .daily-read svg { transition: transform .2s; } .daily-read:hover svg { transform: translateX(3px); }
+ @media(max-width:600px) { .daily-card { grid-template-columns: 1fr; } .date-panel { flex-direction: row; justify-content: space-between; gap: 8px; padding: 12px 20px; } time { flex-direction: row; flex-wrap: wrap; gap: 5px; } .date-month { font-size: 12px; letter-spacing: 0; } .date-month::after { content: ' /'; } .date-day { margin: 0; font: 12px/1.8 var(--sans); } .date-weekday { margin-left: 6px; } .daily-body { padding: 22px 20px; } h2 { font-size: 21px; } }
 </style>
