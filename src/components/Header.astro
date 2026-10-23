@@ -15,6 +15,7 @@ import HeaderLink from './HeaderLink.astro';
 		<div class="nav-links">
 			<HeaderLink href="/">首页</HeaderLink>
 			<HeaderLink href="/blog">博客</HeaderLink>
+			<HeaderLink href="/daily">日报</HeaderLink>
 			<HeaderLink href="/categories">分类</HeaderLink>
 			<HeaderLink href="/tags">标签</HeaderLink>
 			<HeaderLink href="/search">搜索</HeaderLink>
@@ -140,7 +141,7 @@ import HeaderLink from './HeaderLink.astro';
 		transform: translateY(-2px);
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 900px) {
 		.nav-container {
 			padding: 0.75rem 1.25rem;
 			flex-wrap: wrap;
@@ -148,9 +149,10 @@ import HeaderLink from './HeaderLink.astro';
 		}
 		.nav-links {
 			gap: 0.15rem;
+			flex-wrap: wrap;
 			width: 100%;
 			order: 3;
-			justify-content: space-between;
+			justify-content: center;
 		}
 		.nav-links :global(a) { padding: 0.35rem 0.45rem; font-size: 0.88rem; }
 	}
