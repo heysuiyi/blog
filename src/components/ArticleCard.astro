@@ -2,6 +2,7 @@
 import { taxonomyUrl } from '../lib/taxonomy';
 import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
+import DailyCard from './DailyCard.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -14,7 +15,7 @@ const isReversed = index % 2 === 1;
 const category = post.data.category || '随笔';
 ---
 
-<article class={`article-card ${isReversed ? 'reversed' : ''}`}>
+{category === '日报' ? <DailyCard post={post} /> : <article class={`article-card ${isReversed ? 'reversed' : ''}`}>
 	<a href={`/blog/${post.id}/`} class="card-cover-link">
 		<div class="card-cover">
 			{post.data.heroImage ? (
@@ -57,7 +58,7 @@ const category = post.data.category || '随笔';
 			</a>
 		</div>
 	</div>
-</article>
+</article>}
 
 <style>
 	.article-card {

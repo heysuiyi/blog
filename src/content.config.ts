@@ -16,6 +16,10 @@ const blog = defineCollection({
 			heroImage: z.optional(image()),
 			category: z.string().optional().default('随笔'),
 			tags: z.array(z.string()).optional().default([]),
+			daily: z.object({
+				issue: z.number().int().positive(),
+				headline: z.string().min(1),
+			}).optional(),
 		}),
 });
 
