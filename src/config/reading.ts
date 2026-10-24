@@ -10,7 +10,7 @@ export const readingConfig = {
 		text: '留一点时间给好奇',
 	},
 	moments: {
-		enabled: true,
+		enabled: false,
 		label: '示例闪念',
 		entries: [
 			'有些事情，试着讲清楚的时候，才开始真正理解。',

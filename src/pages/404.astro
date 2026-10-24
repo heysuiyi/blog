@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ReadingTools from '../components/ReadingTools.astro';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head><BaseHead title="页面未找到 - SuiYI" description="这个地址没有对应的页面。回到首页，或从文章、日报和搜索继续阅读。" noindex /></head>
+	<body>
+		<Header />
+		<main id="main-content" class="site-wrap not-found">
+			<p class="eyebrow">404 · PAGE NOT FOUND</p>
+			<h1>这一页，暂时没有找到。</h1>
+			<p>地址可能有误，或这篇内容已经搬了家。<br />不妨换个入口，继续阅读。</p>
+			<nav aria-label="继续阅读"><a href="/">回到首页</a><a href="/blog/">全部文章</a><a href="/daily/">学习日报</a><a href="/search/">搜索文章</a></nav>
+			<ReadingTools />
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.not-found { padding-top: 88px; padding-bottom: 80px; min-height: 60vh; }
+	.eyebrow { color: var(--teal); font-size: 12px; letter-spacing: .14em; }
+	h1 { margin: 22px 0; font-size: clamp(26px, 4vw, 36px); }
+	p:not(.eyebrow) { color: var(--muted); line-height: 2; }
+	nav { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 28px 0 48px; }
+	nav a { padding: 6px 0; border-bottom: 1px solid var(--line); }
+	@media(max-width:650px) { .not-found { padding-top: 44px; padding-bottom: 48px; } }
+</style>

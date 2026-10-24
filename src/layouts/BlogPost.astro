@@ -7,17 +7,52 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import ReadingTools from '../components/ReadingTools.astro';
+import { SITE_TITLE } from '../consts';
+import { socialImagePath, socialImageAlt, SOCIAL_IMAGE_WIDTH, SOCIAL_IMAGE_HEIGHT } from '../lib/social-image';
 
 type PostData = CollectionEntry<'blog'>['data'];
-type Props = Omit<PostData, 'category' | 'tags'> & Partial<Pick<PostData, 'category' | 'tags'>>;
+type Props = Omit<PostData, 'category' | 'tags'> & Partial<Pick<PostData, 'category' | 'tags'>> & {
+	postId?: string;
+	readingMinutes?: number;
+	previousPost?: { title: string; href: string };
+	nextPost?: { title: string; href: string };
+};
 
-const { title, description, pubDate, updatedDate, heroImage, category, tags = [] } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category, tags = [], postId, readingMinutes, previousPost, nextPost } = Astro.props;
+const articleURL = new URL(Astro.url.pathname, Astro.site).href;
+const socialImage = postId ? socialImagePath(postId) : heroImage;
+const shareAlt = postId ? socialImageAlt({ title, category: category ?? '随笔', pubDate }) : title;
+const sectionPath = category === '日报' ? '/daily/' : '/blog/';
+const sectionName = category === '日报' ? '学习日报' : '文章';
+// The About page also uses this layout, but is not a dated blog post.
+const structuredData = postId ? {
+	'@context': 'https://schema.org',
+	'@graph': [{
+		'@type': 'BlogPosting', '@id': `${articleURL}#article`,
+		mainEntityOfPage: { '@type': 'WebPage', '@id': articleURL },
+		headline: title, description, url: articleURL,
+		image: [new URL(socialImagePath(postId), Astro.site).href],
+		datePublished: pubDate.toISOString(), dateModified: (updatedDate ?? pubDate).toISOString(),
+		author: { '@type': 'Person', name: SITE_TITLE, url: new URL('/about/', Astro.site).href },
+		inLanguage: 'zh-CN', articleSection: category, keywords: tags.join(', '),
+	}, {
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', Astro.site).href },
+			{ '@type': 'ListItem', position: 2, name: sectionName, item: new URL(sectionPath, Astro.site).href },
+			{ '@type': 'ListItem', position: 3, name: title, item: articleURL },
+		],
+	}],
+} : undefined;
 ---
 
 <!doctype html>
 <html lang="zh-CN">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={socialImage} imageAlt={shareAlt}
+			imageWidth={postId ? SOCIAL_IMAGE_WIDTH : undefined} imageHeight={postId ? SOCIAL_IMAGE_HEIGHT : undefined}
+			type={postId ? 'article' : 'website'} pubDate={postId ? pubDate : undefined}
+			updatedDate={updatedDate} structuredData={structuredData} />
 	</head>
 
 	<body>
@@ -47,6 +82,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags = []
 								(更新于 <FormattedDate date={updatedDate} />)
 							</span>
 						)}
+						{readingMinutes && <span class="reading-time" title="按正文长度估算，实际阅读时间因人而异">约 {readingMinutes} 分钟阅读</span>}
 					</div>
 
 					<h1 class="article-title">{title}</h1>
@@ -54,7 +90,11 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags = []
 
 					{heroImage && (
 						<div class="hero-cover-wrap">
-							<Image width={1020} height={510} src={heroImage} alt={title} class="hero-cover-img" />
+							<Image width={1020} height={510} src={heroImage} alt={title} class="hero-cover-img"
+								layout={heroImage.format === 'svg' ? 'none' : 'constrained'}
+								widths={heroImage.format === 'svg' ? undefined : [384, 768, 1020, 1530]}
+								sizes="(max-width: 650px) calc(100vw - 50px), (max-width: 850px) calc(100vw - 84px), 766px"
+								loading={postId ? 'eager' : 'lazy'} fetchpriority={postId ? 'high' : 'auto'} decoding="async" />
 						</div>
 					)}
 				</header>
@@ -65,6 +105,10 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags = []
 				</div>
 
 				<nav class="post-tags" aria-label="文章标签">{tags.map(tag => <a href={taxonomyUrl('tag', tag)}>#{tag}</a>)}</nav>
+				{(previousPost || nextPost) && <nav class="adjacent-posts" aria-label={category === '日报' ? '相邻日报' : '相邻文章'}>
+					{previousPost ? <a href={previousPost.href} rel="prev"><span>{category === '日报' ? '上一期' : '上一篇'}</span><strong>{previousPost.title}</strong></a> : <span />}
+					{nextPost && <a href={nextPost.href} rel="next"><span>{category === '日报' ? '下一期' : '下一篇'}</span><strong>{nextPost.title}</strong></a>}
+				</nav>}
 				<!-- Post Navigation Footer -->
 				<div class="post-bottom-nav">
 					<a href={category === '日报' ? '/daily/' : '/blog'} class="back-link">
@@ -122,6 +166,13 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags = []
  .article-content :global(th) { background: var(--soft); font-weight: 500; }
  .post-tags { padding-top: 16px; border-top: 1px solid var(--line); }
  .post-bottom-nav { margin-top: 32px; }
+ .adjacent-posts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); }
+ .adjacent-posts a { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+ .adjacent-posts a:last-child { text-align: right; }
+ .adjacent-posts span { color: var(--muted); font-size: 12px; }
+ .adjacent-posts strong { color: var(--ink); font-size: 15px; font-weight: 500; line-height: 1.8; }
+ .adjacent-posts a:hover strong { color: var(--teal); }
  .back-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 13px; }
  @media(max-width:650px) { .post-layout { padding: 24px 25px 45px; } .article-title { font-size: 27px; } .article-content { font-size: 16px; } .article-content :global(h2) { font-size: 22px; } .article-desc { font-size: 14px; } }
+ @media(max-width:480px) { .adjacent-posts { grid-template-columns: 1fr; gap: 20px; } .adjacent-posts > span { display: none; } .adjacent-posts a:last-child { text-align: left; } }
 </style>

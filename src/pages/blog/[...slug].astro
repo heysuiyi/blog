@@ -1,20 +1,34 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { estimatedReadingMinutes, sortPostsNewestFirst } from '../../lib/posts';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+	const posts = sortPostsNewestFirst(await getCollection('blog'));
+	const link = (entry?: CollectionEntry<'blog'>) => entry ? ({
+		title: entry.data.daily ? `第 ${entry.data.daily.issue} 期 · ${entry.data.daily.headline}` : entry.data.title,
+		href: `/blog/${entry.id}/`,
+	}) : undefined;
+	return posts.map((post) => {
+		// Daily issues stay within their series; personal posts stay outside it.
+		const series = posts.filter(entry => (entry.data.category === '日报') === (post.data.category === '日报'));
+		const index = series.findIndex(entry => entry.id === post.id);
+		return {
+			params: { slug: post.id },
+			props: { post, previousPost: link(series[index + 1]), nextPost: link(series[index - 1]) },
+		};
+	});
 }
-type Props = CollectionEntry<'blog'>;
+interface Props {
+	post: CollectionEntry<'blog'>;
+	previousPost?: { title: string; href: string };
+	nextPost?: { title: string; href: string };
+}
 
-const post = Astro.props;
+const { post, previousPost, nextPost } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} postId={post.id} readingMinutes={estimatedReadingMinutes(post.body ?? '')} previousPost={previousPost} nextPost={nextPost}>
 	<Content />
 </BlogPost>
