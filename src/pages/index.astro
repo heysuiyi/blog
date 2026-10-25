@@ -12,7 +12,8 @@ const allPosts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.id.localeCompare(b.id),
 );
 const categoryOf = (post: (typeof allPosts)[number]) => post.data.category.trim() || '随笔';
-const personalPosts = allPosts.filter((post) => categoryOf(post) !== '日报');
+const personalPosts = allPosts.filter((post) => !['日报', '论文解读'].includes(categoryOf(post)));
+const latestPaper = allPosts.find((post) => categoryOf(post) === '论文解读');
 const latestDaily = allPosts.find((post) => categoryOf(post) === '日报');
 const categories = Array.from(new Set(personalPosts.map(categoryOf)));
 const recentIds = new Set(personalPosts.slice(0, 5).map((post) => post.id));
@@ -72,7 +73,7 @@ const dateLabel = (date: Date) => dateISO(date).replaceAll('-', '.');
 					</div>
 				</section>
 
-				<aside class="aside" aria-label="日报与阅读小记">
+				<aside class="aside" aria-label="学习专栏与阅读小记">
 					{latestDaily && (
 						<>
 							<section class="daily" id="daily" aria-labelledby="daily-title">
@@ -85,6 +86,14 @@ const dateLabel = (date: Date) => dateISO(date).replaceAll('-', '.');
 							<div class="daily-archive"><a href="/daily/">往期日报 ↗</a></div>
 						</>
 					)}
+					<section class="margin-note" aria-labelledby="papers-title">
+						<h2 id="papers-title">论文解读</h2>
+						{latestPaper ? <>
+							<h3><a href={`/blog/${latestPaper.id}/`}>{latestPaper.data.title}</a></h3>
+							<p>{latestPaper.data.description}</p>
+						</> : <p>从原始论文出发，读懂方法、证据与边界。第一篇解读正在准备中。</p>}
+						<a class="text-link" href="/papers/">浏览论文解读 ↗</a>
+					</section>
 					{readingConfig.moments.enabled && moments.length > 0 && (
 						<section class="margin-note" aria-labelledby="note-title" data-moments={JSON.stringify(moments)}>
 							<div class="note-head"><h2 id="note-title" class="note-label">{readingConfig.moments.label}</h2>{moments.length > 1 && <button class="quiet-button next-note" id="next-note" type="button" aria-label={`换一则${readingConfig.moments.label}`} aria-controls="note-text" disabled>下一则 ↗</button>}</div>

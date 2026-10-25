@@ -30,7 +30,7 @@ const description = search
  ? `浏览 SuiYI 的${kind === 'category' ? '文章分类' : '文章标签'}，从 ${entries.length} 个主题入口探索 ${allPosts.length} 篇记录。`
  : value
  ? `阅读 SuiYI「${value}」${kind === 'category' ? '分类' : '标签'}下的 ${posts.length} 篇文章，按时间回看相关记录。`
- : `SuiYI 的文章与专栏归档，共 ${allPosts.length} 篇技术、认知、思维与学习日报，支持按分类和标签浏览。`;
+ : `SuiYI 的文章与专栏归档，共 ${allPosts.length} 篇技术、认知、思维、学习日报与论文解读，支持按分类和标签浏览。`;
 ---
 
 <!doctype html>
@@ -46,6 +46,7 @@ const description = search
     <nav class="category-filters" aria-label="文章分类">
      <a href="/blog/" class:list={['filter-tag', {active: !kind && !search}]} aria-current={!kind && !search ? 'page' : undefined}>全部 ({allPosts.length})</a>
      {categories.map(({name,count}) => <a href={taxonomyUrl('category',name)} class:list={['filter-tag',{active:kind === 'category' && value === name}]} aria-current={kind === 'category' && value === name ? 'page' : undefined}>{name} ({count})</a>)}
+     {!categories.some(({name}) => name === '论文解读') && <a href="/papers/" class="filter-tag">论文解读 (0)</a>}
      <a href="/tags/" class:list={['filter-tag',{active:kind === 'tag'}]}>标签 ({tags.length})</a>
      <a href="/search/" class:list={['filter-tag',{active:search}]} aria-current={search ? 'page' : undefined}>搜索</a>
     </nav>

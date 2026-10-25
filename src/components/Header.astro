@@ -13,6 +13,7 @@ import HeaderLink from './HeaderLink.astro';
    <HeaderLink href="/">首页</HeaderLink>
    <HeaderLink href="/blog">文章</HeaderLink>
    <HeaderLink href="/daily">日报</HeaderLink>
+   <HeaderLink href="/papers">论文解读</HeaderLink>
    <HeaderLink href="/about">关于</HeaderLink>
    <a class="search-link" href="/search/" aria-label="搜索文章" title="搜索文章"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></a>
   </nav>
@@ -27,5 +28,5 @@ import HeaderLink from './HeaderLink.astro';
  .main-nav :global(a:hover),.main-nav :global(a.active) { color: var(--ink); }
  .main-nav :global(a.active)::after { content: ''; position: absolute; width: 4px; height: 4px; background: var(--teal); border-radius: 50%; bottom: 3px; left: 50%; transform: translateX(-50%); }
  @media(max-width:650px) { .header-inner { min-height: 80px; gap: 15px; } .brand { font-size: 25px; gap: 8px; } .brand svg { width: 17px; height: 23px; } .main-nav { gap: 15px; font-size: 12px; } }
- @media(max-width:360px) { .header-inner { flex-wrap: wrap; justify-content: center; padding: 15px 0 10px; gap: 2px 20px; } .main-nav { justify-content: center; } }
+ @media(max-width:480px) { .header-inner { flex-wrap: wrap; justify-content: center; padding: 15px 0 10px; gap: 2px 20px; } .main-nav { justify-content: center; } }
 </style>
